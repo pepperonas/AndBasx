@@ -1,5 +1,5 @@
 # AndBasx
-This tiny Android library provides Material-Design dialogs.
+This tiny Android library provides common code for Android.
 
 
 ##How to use
