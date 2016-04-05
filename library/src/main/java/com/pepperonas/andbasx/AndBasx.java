@@ -97,12 +97,6 @@ public class AndBasx {
     }
 
 
-
-//    public static void setUniqueLogIdentifier(String identifier) {
-//        Jbasx.setUniqueIdentifier(identifier);
-//    }
-
-
     /**
      * Writes a log-file in the app's data-directory.
      *
