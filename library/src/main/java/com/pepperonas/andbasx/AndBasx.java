@@ -97,11 +97,7 @@ public class AndBasx {
     }
 
 
-//    /**
-//     * Set unique log identifier.
-//     *
-//     * @see LogMode
-//     */
+
 //    public static void setUniqueLogIdentifier(String identifier) {
 //        Jbasx.setUniqueIdentifier(identifier);
 //    }
