@@ -4,7 +4,7 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/AndBasx.iml" filepath="$PROJECT_DIR$/AndBasx.iml" />
       <module fileurl="file://$PROJECT_DIR$/library/library.iml" filepath="$PROJECT_DIR$/library/library.iml" />
-      <module fileurl="file://$PROJECT_DIR$/showcase/app.iml" filepath="$PROJECT_DIR$/showcase/app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/showcase/showcase.iml" filepath="$PROJECT_DIR$/showcase/showcase.iml" />
     </modules>
   </component>
 </project>

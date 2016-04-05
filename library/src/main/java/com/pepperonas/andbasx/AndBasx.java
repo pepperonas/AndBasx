@@ -19,9 +19,9 @@ package com.pepperonas.andbasx;
 import android.content.Context;
 import android.support.annotation.Nullable;
 import android.support.v4.BuildConfig;
+import android.util.Log;
 
 import com.pepperonas.jbasx.Jbasx;
-import com.pepperonas.jbasx.log.Log;
 
 import java.io.File;
 
@@ -97,14 +97,14 @@ public class AndBasx {
     }
 
 
-    /**
-     * Set unique log identifier.
-     *
-     * @see LogMode
-     */
-    public static void setUniqueLogIdentifier(String identifier) {
-        Jbasx.setUniqueIdentifier(identifier);
-    }
+//    /**
+//     * Set unique log identifier.
+//     *
+//     * @see LogMode
+//     */
+//    public static void setUniqueLogIdentifier(String identifier) {
+//        Jbasx.setUniqueIdentifier(identifier);
+//    }
 
 
     /**
