@@ -142,43 +142,25 @@ public class AndBasx {
 
     public static class Version {
 
+
         /**
-         * Show the current version of the library.
+         * Gets version name.
+         *
+         * @return the version name
          */
-        public static void showVersionInfo() {
-            Log.i(TAG, versionInfo());
+        public static String getVersionName() {
+            return BuildConfig.VERSION_NAME;
         }
 
 
         /**
-         * @return <p>---ANDBASX---<br>
-         * andbasx-{@value BuildConfig#VERSION_NAME}</p>
+         * Gets version info.
+         *
+         * @return the version info
          */
         public static String getVersionInfo() {
-            return "---ANDBASX---\n" +
-                   versionInfo();
+            return "andbasx-" + BuildConfig.VERSION_NAME;
         }
-
-
-        /**
-         * @return '{@value BuildConfig#VERSION_CODE}'
-         */
-        public static int versionCode() { return BuildConfig.VERSION_CODE; }
-
-
-        /**
-         * @return '{@value BuildConfig#VERSION_NAME}'
-         */
-        public static String versionName() { return BuildConfig.VERSION_NAME; }
-
-
-        /**
-         * @return 'andbasx-{@value BuildConfig#VERSION_NAME}'
-         */
-        public static String versionInfo() {
-            return "andbasx-" + versionName() + ".aar";
-        }
-
 
         /**
          * @return The license text.
