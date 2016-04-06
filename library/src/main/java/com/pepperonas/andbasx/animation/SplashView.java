@@ -32,9 +32,10 @@ import android.view.View;
 import android.view.animation.AnimationUtils;
 
 import com.pepperonas.andbasx.AndBasx;
+import com.pepperonas.andbasx.R;
 import com.pepperonas.andbasx.system.AppUtils;
 import com.pepperonas.andbasx.system.DeviceUtils;
-import com.pepperonas.andcommon.R;
+
 
 /**
  * @author Martin Pfeffer (pepperonas)

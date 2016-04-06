@@ -23,7 +23,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Build;
 
-import com.pepperonas.andcommon.R;
+import com.pepperonas.andbasx.R;
 import com.pepperonas.jbasx.base.TextUtils;
 import com.pepperonas.jbasx.color.ColorUtils;
 
