@@ -16,10 +16,14 @@ Add JitPack to your repositories:
 and add the library to your dependencies:
 
 ```
-    compile 'com.github.pepperonas:andbasx:0.1.0'
+    compile 'com.github.pepperonas:andbasx:0.1.1'
 ```
 
+This library may require the following permissions:
 
+```
+    ACCESS_WIFI_STATE, CHANGE_WIFI_STATE, READ_SYNC_SETTINGS
+```
 
 ##Showcase
 Soon...
