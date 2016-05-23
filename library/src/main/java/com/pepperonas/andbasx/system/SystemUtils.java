@@ -23,6 +23,7 @@ import android.app.admin.DevicePolicyManager;
 import android.content.ContentResolver;
 import android.content.Context;
 import android.content.Intent;
+import android.content.IntentFilter;
 import android.content.pm.ApplicationInfo;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
@@ -35,6 +36,7 @@ import android.net.NetworkInfo;
 import android.net.Uri;
 import android.net.wifi.WifiInfo;
 import android.net.wifi.WifiManager;
+import android.os.BatteryManager;
 import android.os.Build;
 import android.os.Looper;
 import android.os.PowerManager;
@@ -101,7 +103,8 @@ public class SystemUtils {
      * @param requestCode the request code
      */
     public static void launchAppSettings(Activity activity, int requestCode) {
-        Intent intent = new Intent(Settings.ACTION_APPLICATION_DETAILS_SETTINGS, Uri.parse("package:" + activity.getPackageName()));
+        Intent intent = new Intent(Settings.ACTION_APPLICATION_DETAILS_SETTINGS, Uri.parse("package:" + activity.getPackageName
+                ()));
         activity.startActivityForResult(intent, requestCode);
     }
 
@@ -545,6 +548,22 @@ public class SystemUtils {
 
 
     /**
+     * Is charging boolean.
+     *
+     * @param context the context
+     * @return the boolean
+     */
+    public static boolean isCharging(Context context) {
+        Intent intent = context.registerReceiver(null, new IntentFilter(Intent.ACTION_BATTERY_CHANGED));
+        int plugged = 0;
+        if (intent != null) {
+            plugged = intent.getIntExtra(BatteryManager.EXTRA_PLUGGED, -1);
+        }
+        return plugged == BatteryManager.BATTERY_PLUGGED_AC || plugged == BatteryManager.BATTERY_PLUGGED_USB;
+    }
+
+
+    /**
      * Is rooted boolean.
      *
      * @return the boolean
@@ -553,8 +572,8 @@ public class SystemUtils {
         String binaryName = "su";
         boolean rooted = false;
         String[] places = {"/sbin/", "/system/bin/", "/system/xbin/",
-                           "/data/local/xbin/", "/data/local/bin/", "/system/sd/xbin/",
-                           "/system/bin/failsafe/", "/data/local/"};
+                "/data/local/xbin/", "/data/local/bin/", "/system/sd/xbin/",
+                "/system/bin/failsafe/", "/data/local/"};
         for (String where : places) {
             if (new File(where + binaryName).exists()) {
                 rooted = true;
