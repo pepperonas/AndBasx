@@ -25,6 +25,16 @@ This library may require the following permissions:
     ACCESS_WIFI_STATE, CHANGE_WIFI_STATE, READ_SYNC_SETTINGS
 ```
 
+
+##ProGuard
+```
+-keep class com.pepperonas.jbasx.** { *; }
+-dontwarn com.pepperonas.jbasx.**
+-keep class com.pepperonas.andbasx.** { *; }
+-dontwarn com.pepperonas.andbasx.**
+```
+
+
 ##Showcase
 Soon...
 
