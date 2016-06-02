@@ -105,6 +105,7 @@ public class NotificationUtils {
                 .setWhen(builder.when == 0 ? System.currentTimeMillis() : builder.when)
                 .setAutoCancel(builder.autoCancel)
                 .setDefaults(builder.flags)
+                .setOnlyAlertOnce(builder.onlyOnce)
                 .setOngoing(builder.onGoing);
 
         if (builder.ledColor != null) {
@@ -158,13 +159,15 @@ public class NotificationUtils {
         private int ledBrightnessPercent = 100;
         private boolean vibration = true;
         private boolean sound = true;
+        private boolean onlyOnce;
 
 
         /**
          * Instantiates a new Builder.
          *
-         * @param context  the context
-         * @param receiver the receiver
+         * @param context        the context
+         * @param receiver       the receiver
+         * @param notificationId the notification id
          */
         public Builder(Context context, Class<?> receiver, int notificationId) {
             this.context = context;
@@ -335,6 +338,28 @@ public class NotificationUtils {
          */
         public Builder when(long when) {
             this.when = when;
+            return this;
+        }
+
+
+        /**
+         * Sets only once.
+         *
+         * @param onlyOnce the only once
+         * @return the only once
+         */
+        public Builder setOnlyOnce(boolean onlyOnce) {
+            this.onlyOnce = onlyOnce;
+            return this;
+        }
+
+
+        /**
+         * Build builder.
+         *
+         * @return the builder
+         */
+        public Builder build() {
             return this;
         }
 
