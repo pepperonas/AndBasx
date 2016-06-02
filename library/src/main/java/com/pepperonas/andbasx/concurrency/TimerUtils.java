@@ -21,10 +21,18 @@ import java.util.TimerTask;
 import java.util.concurrent.Callable;
 
 /**
+ * The type Timer utils.
+ *
  * @author Martin Pfeffer (pepperonas)
  */
 public class TimerUtils {
 
+    /**
+     * Run continuously.
+     *
+     * @param rate     the rate
+     * @param callable the callable
+     */
     public static void runContinuously(int rate, final Callable<Void> callable) {
         new Timer().scheduleAtFixedRate(new TimerTask() {
             @Override
@@ -39,6 +47,13 @@ public class TimerUtils {
     }
 
 
+    /**
+     * Run continuously.
+     *
+     * @param rate     the rate
+     * @param period   the period
+     * @param callable the callable
+     */
     public static void runContinuously(int rate, int period, final Callable<Void> callable) {
         new Timer().scheduleAtFixedRate(new TimerTask() {
             @Override

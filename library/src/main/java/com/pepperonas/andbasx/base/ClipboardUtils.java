@@ -23,10 +23,15 @@ import android.content.Context;
 import com.pepperonas.andbasx.AndBasx;
 
 /**
+ * The type Clipboard utils.
+ *
  * @author Martin Pfeffer (pepperonas)
  */
 public class ClipboardUtils {
 
+    /**
+     * The constant TAG.
+     */
     public static final String TAG = "ClipboardUtils";
 
 
@@ -43,6 +48,11 @@ public class ClipboardUtils {
     }
 
 
+    /**
+     * Sets clipboard.
+     *
+     * @param text the text
+     */
     public static void setClipboard(CharSequence text) {
         ClipboardManager clipboard = (ClipboardManager) AndBasx.getContext().getSystemService(Context.CLIPBOARD_SERVICE);
         ClipData clip = ClipData.newPlainText("label", text);

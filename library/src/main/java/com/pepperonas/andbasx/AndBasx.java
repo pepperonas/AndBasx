@@ -24,6 +24,8 @@ import com.pepperonas.jbasx.Jbasx;
 import java.io.File;
 
 /**
+ * The type And basx.
+ *
  * @author Martin Pfeffer (pepperonas)
  */
 public class AndBasx {
@@ -35,8 +37,20 @@ public class AndBasx {
     private static Context mCtx;
 
 
+    /**
+     * The enum Log mode.
+     */
     public enum LogMode {
-        NONE(-1), DEFAULT(0), ALL(3);
+        /**
+         * None log mode.
+         */
+        NONE(-1), /**
+         * Default log mode.
+         */
+        DEFAULT(0), /**
+         * All log mode.
+         */
+        ALL(3);
 
         private final int mode;
 
@@ -47,11 +61,16 @@ public class AndBasx {
     }
 
 
+    /**
+     * The constant mLog.
+     */
     public static LogMode mLog = LogMode.DEFAULT;
 
 
     /**
      * Initializes the library with the app's {@link Context}.
+     *
+     * @param context the context
      */
     public static void init(Context context) {
         mCtx = context;
@@ -61,6 +80,8 @@ public class AndBasx {
     /**
      * Initializes the library with the app's {@link Context}.
      *
+     * @param context the context
+     * @param logMode the log mode
      * @see LogMode
      */
     public static void init(Context context, @Nullable LogMode logMode) {
@@ -81,6 +102,7 @@ public class AndBasx {
     /**
      * Set the log behaviour.
      *
+     * @param logMode the log mode
      * @see LogMode
      */
     public static void setLog(LogMode logMode) {
@@ -134,11 +156,19 @@ public class AndBasx {
     }
 
 
+    /**
+     * Gets context.
+     *
+     * @return the context
+     */
     public static Context getContext() {
         return mCtx;
     }
 
 
+    /**
+     * The type Version.
+     */
     public static class Version {
 
 
@@ -161,7 +191,10 @@ public class AndBasx {
             return "andbasx-" + BuildConfig.VERSION_NAME;
         }
 
+
         /**
+         * Gets license.
+         *
          * @return The license text.
          */
         public static String getLicense() {

@@ -19,6 +19,8 @@ package com.pepperonas.andbasx.datatype;
 import android.content.pm.ApplicationInfo;
 
 /**
+ * The type Installed app.
+ *
  * @author Martin Pfeffer (pepperonas)
  */
 public class InstalledApp {
@@ -28,27 +30,53 @@ public class InstalledApp {
     private String applicationName;
 
 
+    /**
+     * Instantiates a new Installed app.
+     *
+     * @param applicationInfo the application info
+     * @param applicationName the application name
+     */
     public InstalledApp(ApplicationInfo applicationInfo, String applicationName) {
         this.applicationInfo = applicationInfo;
         this.applicationName = applicationName;
     }
 
 
+    /**
+     * Gets application info.
+     *
+     * @return the application info
+     */
     public ApplicationInfo getApplicationInfo() {
         return applicationInfo;
     }
 
 
+    /**
+     * Sets application info.
+     *
+     * @param applicationInfo the application info
+     */
     public void setApplicationInfo(ApplicationInfo applicationInfo) {
         this.applicationInfo = applicationInfo;
     }
 
 
+    /**
+     * Gets application name.
+     *
+     * @return the application name
+     */
     public String getApplicationName() {
         return applicationName;
     }
 
 
+    /**
+     * Sets application name.
+     *
+     * @param applicationName the application name
+     */
     public void setApplicationName(String applicationName) {
         this.applicationName = applicationName;
     }

@@ -19,12 +19,26 @@ package com.pepperonas.andbasx.interfaces;
 import com.pepperonas.andbasx.concurrency.LoaderTaskUtils;
 
 /**
+ * The interface Loader task listener.
+ *
  * @author Martin Pfeffer (pepperonas)
  */
 public interface LoaderTaskListener {
 
+    /**
+     * On loader task success.
+     *
+     * @param action the action
+     * @param msg    the msg
+     */
     void onLoaderTaskSuccess(LoaderTaskUtils.Action action, String msg);
 
+    /**
+     * On loader task failed.
+     *
+     * @param action the action
+     * @param msg    the msg
+     */
     void onLoaderTaskFailed(LoaderTaskUtils.Action action, String msg);
 
 }

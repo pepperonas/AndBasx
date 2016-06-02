@@ -25,6 +25,8 @@ import android.view.View;
 import android.widget.TextView;
 
 /**
+ * The type View utils.
+ *
  * @author Martin Pfeffer (pepperonas)
  */
 public class ViewUtils {
@@ -32,6 +34,13 @@ public class ViewUtils {
     private static final String TAG = "ViewUtils";
 
 
+    /**
+     * Measure text width int.
+     *
+     * @param view the view
+     * @param text the text
+     * @return the int
+     */
     public static int measureTextWidth(TextView view, String text) {
         if (TextUtils.isEmpty(text)) {
             return 0;
@@ -42,6 +51,13 @@ public class ViewUtils {
     }
 
 
+    /**
+     * Event in view boolean.
+     *
+     * @param event the event
+     * @param view  the view
+     * @return the boolean
+     */
     public static boolean eventInView(MotionEvent event, View view) {
         if (event == null || view == null) {
             return false;
@@ -65,6 +81,12 @@ public class ViewUtils {
     }
 
 
+    /**
+     * Gets view center.
+     *
+     * @param view the view
+     * @return the view center
+     */
     public static Point getViewCenter(View view) {
         if (view == null) {
             return new Point();

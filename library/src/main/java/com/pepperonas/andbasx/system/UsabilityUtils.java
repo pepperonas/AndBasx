@@ -28,9 +28,12 @@ import android.os.Build;
 import android.view.WindowManager;
 import android.view.inputmethod.InputMethodManager;
 
+import com.google.android.gms.common.AccountPicker;
 import com.pepperonas.andbasx.AndBasx;
 
 /**
+ * The type Usability utils.
+ *
  * @author Martin Pfeffer (pepperonas)
  */
 public class UsabilityUtils {
@@ -38,6 +41,12 @@ public class UsabilityUtils {
     private static final String TAG = "UsabilityUtils";
 
 
+    /**
+     * Launch web intent.
+     *
+     * @param activity the activity
+     * @param url      the url
+     */
     public static void launchWebIntent(Activity activity, String url) {
         Intent i = new Intent(Intent.ACTION_VIEW);
         i.setData(Uri.parse(url));
@@ -45,11 +54,25 @@ public class UsabilityUtils {
     }
 
 
+    /**
+     * Launch app store.
+     *
+     * @param activity    the activity
+     * @param packageName the package name
+     */
     public static void launchAppStore(Activity activity, String packageName) {
-        activity.startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("http://play.google.com/store/apps/details?id=" + packageName)));
+        activity.startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("http://play.google.com/store/apps/details?id=" +
+                packageName)));
     }
 
 
+    /**
+     * Launch share app intent.
+     *
+     * @param activity    the activity
+     * @param packageName the package name
+     * @param text        the text
+     */
     public static void launchShareAppIntent(Activity activity, String packageName, String text) {
         Intent sendIntent = new Intent();
         sendIntent.setAction(Intent.ACTION_SEND);
@@ -59,6 +82,12 @@ public class UsabilityUtils {
     }
 
 
+    /**
+     * Launch app or play store boolean.
+     *
+     * @param packageName the package name
+     * @return the boolean
+     */
     @TargetApi(Build.VERSION_CODES.CUPCAKE)
     public static boolean launchAppOrPlayStore(String packageName) {
         PackageManager manager = AndBasx.getContext().getPackageManager();
@@ -80,16 +109,24 @@ public class UsabilityUtils {
     }
 
 
-//    public static void launchAccountPicker(Activity activity, int requestCode) {
-//        try {
-//            Intent intent = AccountPicker.newChooseAccountIntent(null, null, new String[]{GoogleAuthUtil.GOOGLE_ACCOUNT_TYPE}, false, null, null, null, null);
-//            activity.startActivityForResult(intent, requestCode);
-//        } catch (ActivityNotFoundException e) {
-//            e.printStackTrace();
-//        }
-//    }
+    /**
+     * Launch account picker.
+     *
+     * @param activity    the activity
+     * @param requestCode the request code
+     */
+    public static void launchAccountPicker(Activity activity, int requestCode) {
+        Intent intent = AccountPicker.newChooseAccountIntent(null, null, new String[]{
+                "com.google", "com.google.android" + ".legacyimap"}, false, null, null, null, null);
+        activity.startActivityForResult(intent, requestCode);
+    }
 
 
+    /**
+     * Restart application.
+     *
+     * @param clazz the clazz
+     */
     public static void restartApplication(Class<?> clazz) {
         Intent intent = new Intent(AndBasx.getContext(), clazz);
         int pendingIntentId = 198964;
@@ -108,6 +145,7 @@ public class UsabilityUtils {
     /**
      * Start an intent to share text information.
      *
+     * @param ctx        the ctx
      * @param receiver   The addresses which should receive the message.
      * @param intentInfo The intent's description.
      * @param subject    The content's subject.

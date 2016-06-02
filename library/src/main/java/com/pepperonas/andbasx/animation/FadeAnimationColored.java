@@ -25,6 +25,8 @@ import android.view.animation.Animation;
 import com.pepperonas.andbasx.AndBasx;
 
 /**
+ * The type Fade animation colored.
+ *
  * @author Martin Pfeffer (pepperonas)
  */
 public class FadeAnimationColored {
@@ -37,12 +39,23 @@ public class FadeAnimationColored {
     private int colorId = android.R.color.white;
 
 
+    /**
+     * Instantiates a new Fade animation colored.
+     *
+     * @param view the view
+     */
     public FadeAnimationColored(View view) {
         this.view = view;
         prepareView();
     }
 
 
+    /**
+     * Instantiates a new Fade animation colored.
+     *
+     * @param view    the view
+     * @param colorId the color id
+     */
     public FadeAnimationColored(View view, int colorId) {
         this.view = view;
         this.colorId = AndBasx.getContext().getResources().getColor(colorId);
@@ -50,6 +63,12 @@ public class FadeAnimationColored {
     }
 
 
+    /**
+     * Instantiates a new Fade animation colored.
+     *
+     * @param view  the view
+     * @param color the color
+     */
     public FadeAnimationColored(View view, String color) {
         this.view = view;
         this.colorId = Color.parseColor(color);
@@ -57,6 +76,15 @@ public class FadeAnimationColored {
     }
 
 
+    /**
+     * Instantiates a new Fade animation colored.
+     *
+     * @param view          the view
+     * @param maxBrightness the max brightness
+     * @param minBrightness the min brightness
+     * @param duration      the duration
+     * @param startOffset   the start offset
+     */
     public FadeAnimationColored(View view, float maxBrightness, float minBrightness, long duration, long startOffset) {
         this.view = view;
         this.maxBrightness = maxBrightness;
@@ -67,6 +95,16 @@ public class FadeAnimationColored {
     }
 
 
+    /**
+     * Instantiates a new Fade animation colored.
+     *
+     * @param view          the view
+     * @param color         the color
+     * @param maxBrightness the max brightness
+     * @param minBrightness the min brightness
+     * @param duration      the duration
+     * @param startOffset   the start offset
+     */
     public FadeAnimationColored(View view, String color, float maxBrightness, float minBrightness, long duration, long startOffset) {
         this.view = view;
         this.colorId = Color.parseColor(color);
@@ -78,6 +116,16 @@ public class FadeAnimationColored {
     }
 
 
+    /**
+     * Instantiates a new Fade animation colored.
+     *
+     * @param view          the view
+     * @param colorId       the color id
+     * @param maxBrightness the max brightness
+     * @param minBrightness the min brightness
+     * @param duration      the duration
+     * @param startOffset   the start offset
+     */
     public FadeAnimationColored(View view, int colorId, float maxBrightness, float minBrightness, long duration, long startOffset) {
         this.view = view;
         this.colorId = AndBasx.getContext().getResources().getColor(colorId);
@@ -89,6 +137,9 @@ public class FadeAnimationColored {
     }
 
 
+    /**
+     * Fade out.
+     */
     public void fadeOut() {
         this.view.setAlpha(1f);
         Animation anim = new AlphaAnimation(minBrightness, maxBrightness);
@@ -100,6 +151,9 @@ public class FadeAnimationColored {
     }
 
 
+    /**
+     * Fade in.
+     */
     public void fadeIn() {
         Animation anim = new AlphaAnimation(maxBrightness, minBrightness);
         anim.setDuration(duration);

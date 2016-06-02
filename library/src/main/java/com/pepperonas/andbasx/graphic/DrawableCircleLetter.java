@@ -29,6 +29,8 @@ import com.pepperonas.andbasx.system.DeviceUtils;
 import com.pepperonas.jbasx.div.MaterialColor;
 
 /**
+ * The type Drawable circle letter.
+ *
  * @author Martin Pfeffer (pepperonas)
  */
 public class DrawableCircleLetter extends Drawable {
@@ -38,6 +40,11 @@ public class DrawableCircleLetter extends Drawable {
     private final Builder builder;
 
 
+    /**
+     * Instantiates a new Drawable circle letter.
+     *
+     * @param builder the builder
+     */
     public DrawableCircleLetter(Builder builder) {
         this.builder = builder;
         paint = new Paint();
@@ -106,6 +113,9 @@ public class DrawableCircleLetter extends Drawable {
     }
 
 
+    /**
+     * The type Builder.
+     */
     public static class Builder {
 
         private final float radius;
@@ -122,6 +132,13 @@ public class DrawableCircleLetter extends Drawable {
         private boolean applySurfaceShadow = true;
 
 
+        /**
+         * Instantiates a new Builder.
+         *
+         * @param diameterDp the diameter dp
+         * @param color      the color
+         * @param text       the text
+         */
         public Builder(int diameterDp, int color, String text) {
             this.radius = DeviceUtils.dp2px(diameterDp / 2);
             this.color = color;
@@ -129,6 +146,13 @@ public class DrawableCircleLetter extends Drawable {
         }
 
 
+        /**
+         * Instantiates a new Builder.
+         *
+         * @param diameterDp the diameter dp
+         * @param color      the color
+         * @param text       the text
+         */
         public Builder(int diameterDp, String color, String text) {
             this.radius = DeviceUtils.dp2px(diameterDp / 2);
             this.text = text;
@@ -136,71 +160,136 @@ public class DrawableCircleLetter extends Drawable {
         }
 
 
+        /**
+         * Text size builder.
+         *
+         * @param textSize the text size
+         * @return the builder
+         */
         public Builder textSize(float textSize) {
             this.textSize = DeviceUtils.sp2px(textSize);
             return this;
         }
 
 
+        /**
+         * Text color builder.
+         *
+         * @param textColor the text color
+         * @return the builder
+         */
         public Builder textColor(int textColor) {
             this.textColor = textColor;
             return this;
         }
 
 
+        /**
+         * Text color builder.
+         *
+         * @param textColor the text color
+         * @return the builder
+         */
         public Builder textColor(String textColor) {
             this.textColor = Color.parseColor(textColor);
             return this;
         }
 
 
+        /**
+         * Typeface builder.
+         *
+         * @param typeface the typeface
+         * @return the builder
+         */
         public Builder typeface(Typeface typeface) {
             this.typeface = typeface;
             return this;
         }
 
 
+        /**
+         * Disable upper case builder.
+         *
+         * @return the builder
+         */
         public Builder disableUpperCase() {
             this.isUpperCase = false;
             return this;
         }
 
 
+        /**
+         * Disable bold builder.
+         *
+         * @return the builder
+         */
         public Builder disableBold() {
             this.isBold = false;
             return this;
         }
 
 
+        /**
+         * Disable shadow on surface builder.
+         *
+         * @return the builder
+         */
         public Builder disableShadowOnSurface() {
             this.applySurfaceShadow = false;
             return this;
         }
 
 
+        /**
+         * Disable shadow on text builder.
+         *
+         * @return the builder
+         */
         public Builder disableShadowOnText() {
             this.applyTextShadow = false;
             return this;
         }
 
 
+        /**
+         * Sets tag.
+         *
+         * @param tag the tag
+         * @return the tag
+         */
         public Builder setTag(String tag) {
             this.tag = tag;
             return this;
         }
 
 
+        /**
+         * Build drawable circle letter.
+         *
+         * @return the drawable circle letter
+         */
         public DrawableCircleLetter build() {
             return new DrawableCircleLetter(this);
         }
 
 
+        /**
+         * Show.
+         *
+         * @param imageView the image view
+         */
         public void show(ImageView imageView) {
             imageView.setImageDrawable(new DrawableCircleLetter(this));
         }
     }
 
 
+    /**
+     * Gets tag.
+     *
+     * @return the tag
+     */
     public String getTag() { return builder.tag; }
 
 }

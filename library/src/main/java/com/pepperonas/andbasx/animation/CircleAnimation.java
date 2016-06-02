@@ -23,10 +23,20 @@ import android.view.View;
 import android.view.ViewAnimationUtils;
 
 /**
+ * The type Circle animation.
+ *
  * @author Martin Pfeffer (pepperonas)
  */
 public class CircleAnimation {
 
+    /**
+     * Animate.
+     *
+     * @param view     the view
+     * @param cx       the cx
+     * @param cy       the cy
+     * @param duration the duration
+     */
     public static void animate(final View view, int cx, int cy, int duration) {
         if (view == null) return;
         try {

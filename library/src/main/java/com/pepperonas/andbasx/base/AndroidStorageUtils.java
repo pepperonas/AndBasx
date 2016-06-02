@@ -26,6 +26,8 @@ import com.pepperonas.andbasx.AndBasx;
 import com.pepperonas.jbasx.log.Log;
 
 /**
+ * The type Android storage utils.
+ *
  * @author Martin Pfeffer (pepperonas)
  */
 public class AndroidStorageUtils {
@@ -60,6 +62,8 @@ public class AndroidStorageUtils {
 
     /**
      * The app's internal directory (such as '/data/data/com.pepperonas.testapp/files').
+     *
+     * @return the apps internal data dir
      */
     public static String getAppsInternalDataDir() {
         return AndBasx.getContext().getFilesDir().getAbsolutePath();
@@ -68,6 +72,9 @@ public class AndroidStorageUtils {
 
     /**
      * The app's external files directory (such as '/storage/emulated/0/Android/data/com.pepperonas.testapp/files/dirName').
+     *
+     * @param dirName the dir name
+     * @return the apps external file dir
      */
     public static String getAppsExternalFileDir(String dirName) {
         if (AndBasx.getContext().getExternalFilesDir(dirName) != null) {
@@ -81,6 +88,8 @@ public class AndroidStorageUtils {
 
     /**
      * The app's external cache directory (such as '/storage/emulated/0/Android/data/com.pepperonas.testapp/cache').
+     *
+     * @return the apps external cache dir
      */
     public static String getAppsExternalCacheDir() {
         if (AndBasx.getContext().getExternalCacheDir() != null) {
@@ -94,6 +103,8 @@ public class AndroidStorageUtils {
 
     /**
      * The external root directory (such as '/storage/emulated/0').
+     *
+     * @return the external dir
      */
     public static String getExternalDir() {
         return Environment.getExternalStorageDirectory().getAbsolutePath();
@@ -102,6 +113,8 @@ public class AndroidStorageUtils {
 
     /**
      * The download directory (such as '/storage/emulated/0/Download').
+     *
+     * @return the download dir
      */
     public static String getDownloadDir() {
         return Environment.getExternalStorageDirectory().getAbsolutePath() + "/Download";

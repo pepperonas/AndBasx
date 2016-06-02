@@ -30,6 +30,8 @@ import android.util.TypedValue;
 import com.pepperonas.andbasx.AndBasx;
 
 /**
+ * The type Loader.
+ *
  * @author Martin Pfeffer (pepperonas)
  */
 public class Loader {

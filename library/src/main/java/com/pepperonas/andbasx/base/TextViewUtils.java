@@ -23,13 +23,30 @@ import android.widget.TextView;
 import com.pepperonas.jbasx.div.MaterialColor;
 
 /**
+ * The type Text view utils.
+ *
  * @author Martin Pfeffer (pepperonas)
  */
 public class TextViewUtils {
 
+    /**
+     * The enum Text size.
+     */
     public enum TextSize {
-        SMALL("small"), NORMAL("normal"), LARGE("big");
+        /**
+         * Small text size.
+         */
+        SMALL("small"), /**
+         * Normal text size.
+         */
+        NORMAL("normal"), /**
+         * Large text size.
+         */
+        LARGE("big");
 
+        /**
+         * The Text size.
+         */
         String textSize;
 
 
@@ -41,6 +58,8 @@ public class TextViewUtils {
 
     /**
      * Sets the text of a {@link TextView} to the default style.
+     *
+     * @param textView the text view
      */
     public static void setNormalStyle(TextView textView) {
         textView.setTypeface(null, Typeface.NORMAL);
@@ -49,6 +68,8 @@ public class TextViewUtils {
 
     /**
      * Sets the text of a {@link TextView} italic.
+     *
+     * @param textView the text view
      */
     public static void setItalic(TextView textView) {
         textView.setTypeface(null, Typeface.ITALIC);
@@ -57,6 +78,8 @@ public class TextViewUtils {
 
     /**
      * Sets the text of a {@link TextView} bold.
+     *
+     * @param textView the text view
      */
     public static void setBold(TextView textView) {
         textView.setTypeface(null, Typeface.BOLD);
@@ -65,6 +88,8 @@ public class TextViewUtils {
 
     /**
      * Sets the text of a {@link TextView} bold and italic.
+     *
+     * @param textView the text view
      */
     public static void setBoldAndItalic(TextView textView) {
         textView.setTypeface(null, Typeface.BOLD_ITALIC);
@@ -74,7 +99,9 @@ public class TextViewUtils {
     /**
      * Colorizes the text of a {@link TextView}.
      *
-     * @param color use {@link MaterialColor}.
+     * @param textView the text view
+     * @param text     the text
+     * @param color    use {@link MaterialColor}.
      */
     public static void colorize(TextView textView, String text, String color) {
         textView.setText(Html.fromHtml("<normal><font color=\"" + color + "\">" + text + "</font></normal>"));
@@ -84,7 +111,9 @@ public class TextViewUtils {
     /**
      * Resize the font size of a {@link TextView}.
      *
-     * @param size use {@link TextSize}.
+     * @param textView the text view
+     * @param text     the text
+     * @param size     use {@link TextSize}.
      */
     public static void resize(TextView textView, String text, TextSize size) {
         textView.setText(Html.fromHtml("<" + size.textSize + ">" + text + "</" + size.textSize + ">"));
@@ -94,8 +123,10 @@ public class TextViewUtils {
     /**
      * Resize the font size of a {@link TextView} and colorizes the text.
      *
-     * @param color use {@link MaterialColor}.
-     * @param size  use {@link TextSize}.
+     * @param textView the text view
+     * @param text     the text
+     * @param color    use {@link MaterialColor}.
+     * @param size     use {@link TextSize}.
      */
     public static void resizeColorized(TextView textView, String text, String color, TextSize size) {
         textView.setText(Html.fromHtml("<" + size.textSize + "><font color=\"" + color + "\">" + text + "</font></" + size.textSize + ">"));

@@ -30,6 +30,8 @@ import com.pepperonas.andbasx.system.DeviceUtils;
 import com.pepperonas.jbasx.div.MaterialColor;
 
 /**
+ * The type Drawable square letter.
+ *
  * @author Martin Pfeffer (pepperonas)
  */
 public class DrawableSquareLetter extends Drawable {
@@ -39,6 +41,11 @@ public class DrawableSquareLetter extends Drawable {
     private final Builder builder;
 
 
+    /**
+     * Instantiates a new Drawable square letter.
+     *
+     * @param builder the builder
+     */
     public DrawableSquareLetter(Builder builder) {
         this.builder = builder;
         paint = new Paint();
@@ -110,6 +117,9 @@ public class DrawableSquareLetter extends Drawable {
     }
 
 
+    /**
+     * The type Builder.
+     */
     public static class Builder {
 
         private final float size;
@@ -127,6 +137,13 @@ public class DrawableSquareLetter extends Drawable {
         private boolean applySurfaceShadow = true;
 
 
+        /**
+         * Instantiates a new Builder.
+         *
+         * @param sizeDp the size dp
+         * @param color  the color
+         * @param text   the text
+         */
         public Builder(int sizeDp, int color, String text) {
             this.text = text;
             this.size = DeviceUtils.dp2px(sizeDp);
@@ -134,6 +151,13 @@ public class DrawableSquareLetter extends Drawable {
         }
 
 
+        /**
+         * Instantiates a new Builder.
+         *
+         * @param sizeDp the size dp
+         * @param color  the color
+         * @param text   the text
+         */
         public Builder(int sizeDp, String color, String text) {
             this.text = text;
             this.size = DeviceUtils.dp2px(sizeDp);
@@ -141,77 +165,148 @@ public class DrawableSquareLetter extends Drawable {
         }
 
 
+        /**
+         * Text size builder.
+         *
+         * @param textSize the text size
+         * @return the builder
+         */
         public Builder textSize(float textSize) {
             this.textSize = DeviceUtils.sp2px(textSize);
             return this;
         }
 
 
+        /**
+         * Rounded builder.
+         *
+         * @param radiusDp the radius dp
+         * @return the builder
+         */
         public Builder rounded(int radiusDp) {
             this.rounded = DeviceUtils.dp2px(radiusDp);
             return this;
         }
 
 
+        /**
+         * Text color builder.
+         *
+         * @param textColor the text color
+         * @return the builder
+         */
         public Builder textColor(int textColor) {
             this.textColor = textColor;
             return this;
         }
 
 
+        /**
+         * Text color builder.
+         *
+         * @param textColor the text color
+         * @return the builder
+         */
         public Builder textColor(String textColor) {
             this.textColor = Color.parseColor(textColor);
             return this;
         }
 
 
+        /**
+         * Typeface builder.
+         *
+         * @param typeface the typeface
+         * @return the builder
+         */
         public Builder typeface(Typeface typeface) {
             this.typeface = typeface;
             return this;
         }
 
 
+        /**
+         * Disable upper case builder.
+         *
+         * @return the builder
+         */
         public Builder disableUpperCase() {
             this.isUpperCase = false;
             return this;
         }
 
 
+        /**
+         * Disable bold builder.
+         *
+         * @return the builder
+         */
         public Builder disableBold() {
             this.isBold = false;
             return this;
         }
 
 
+        /**
+         * Disable shadow on surface builder.
+         *
+         * @return the builder
+         */
         public Builder disableShadowOnSurface() {
             this.applySurfaceShadow = false;
             return this;
         }
 
 
+        /**
+         * Disable shadow on text builder.
+         *
+         * @return the builder
+         */
         public Builder disableShadowOnText() {
             this.applyTextShadow = false;
             return this;
         }
 
 
+        /**
+         * Sets tag.
+         *
+         * @param tag the tag
+         * @return the tag
+         */
         public Builder setTag(String tag) {
             this.tag = tag;
             return this;
         }
 
 
+        /**
+         * Build drawable square letter.
+         *
+         * @return the drawable square letter
+         */
         public DrawableSquareLetter build() {
             return new DrawableSquareLetter(this);
         }
 
 
+        /**
+         * Show.
+         *
+         * @param imageView the image view
+         */
         public void show(ImageView imageView) {
             imageView.setImageDrawable(this.build());
         }
     }
 
 
+    /**
+     * Gets tag.
+     *
+     * @return the tag
+     */
     public String getTag() { return builder.tag; }
 
 }

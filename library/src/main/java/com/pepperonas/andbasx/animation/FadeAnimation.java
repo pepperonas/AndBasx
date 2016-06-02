@@ -21,6 +21,8 @@ import android.view.animation.AlphaAnimation;
 import android.view.animation.Animation;
 
 /**
+ * The type Fade animation.
+ *
  * @author Martin Pfeffer (pepperonas)
  */
 public class FadeAnimation {
@@ -32,11 +34,25 @@ public class FadeAnimation {
     private long startOffset = 0L;
 
 
+    /**
+     * Instantiates a new Fade animation.
+     *
+     * @param view the view
+     */
     public FadeAnimation(View view) {
         this.view = view;
     }
 
 
+    /**
+     * Instantiates a new Fade animation.
+     *
+     * @param view          the view
+     * @param maxBrightness the max brightness
+     * @param minBrightness the min brightness
+     * @param duration      the duration
+     * @param startOffset   the start offset
+     */
     public FadeAnimation(View view, float maxBrightness, float minBrightness, long duration, long startOffset) {
         this.view = view;
         this.maxBrightness = maxBrightness;
@@ -46,6 +62,9 @@ public class FadeAnimation {
     }
 
 
+    /**
+     * Fade out.
+     */
     public void fadeOut() {
         Animation anim = new AlphaAnimation(maxBrightness, minBrightness);
         anim.setDuration(duration);
@@ -56,6 +75,9 @@ public class FadeAnimation {
     }
 
 
+    /**
+     * Fade in.
+     */
     public void fadeIn() {
         Animation anim = new AlphaAnimation(minBrightness, maxBrightness);
         anim.setDuration(duration);

@@ -20,6 +20,8 @@ import android.graphics.Point;
 import android.graphics.Rect;
 
 /**
+ * The type Geometry utils.
+ *
  * @author Martin Pfeffer (pepperonas)
  */
 public class GeometryUtils {
@@ -27,6 +29,13 @@ public class GeometryUtils {
     private static final String TAG = "GeometryUtils";
 
 
+    /**
+     * Points to rectangle rect.
+     *
+     * @param a the a
+     * @param b the b
+     * @return the rect
+     */
     public static Rect pointsToRectangle(Point a, Point b) {
         int tmp_sX = (a.x < b.x) ? a.x : b.x;
         int tmp_sY = (a.y < b.y) ? a.y : b.y;

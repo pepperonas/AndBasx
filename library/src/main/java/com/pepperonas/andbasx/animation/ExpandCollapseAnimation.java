@@ -21,6 +21,8 @@ import android.view.animation.Animation;
 import android.view.animation.Transformation;
 
 /**
+ * The type Expand collapse animation.
+ *
  * @author Martin Pfeffer (pepperonas)
  */
 public class ExpandCollapseAnimation extends Animation {

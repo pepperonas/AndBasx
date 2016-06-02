@@ -28,6 +28,8 @@ import com.pepperonas.andbasx.system.DeviceUtils;
 import com.pepperonas.jbasx.div.MaterialColor;
 
 /**
+ * The type Drawable circle.
+ *
  * @author Martin Pfeffer (pepperonas)
  */
 public class DrawableCircle extends Drawable {
@@ -36,6 +38,11 @@ public class DrawableCircle extends Drawable {
     private final Builder builder;
 
 
+    /**
+     * Instantiates a new Drawable circle.
+     *
+     * @param builder the builder
+     */
     public DrawableCircle(Builder builder) {
         this.builder = builder;
         paint = new Paint();
@@ -77,6 +84,9 @@ public class DrawableCircle extends Drawable {
     }
 
 
+    /**
+     * The type Builder.
+     */
     public static class Builder {
 
         private final float radius;
@@ -86,41 +96,79 @@ public class DrawableCircle extends Drawable {
         private boolean applySurfaceShadow = true;
 
 
+        /**
+         * Instantiates a new Builder.
+         *
+         * @param diameterDp the diameter dp
+         * @param color      the color
+         */
         public Builder(int diameterDp, int color) {
             this.radius = DeviceUtils.dp2px(diameterDp / 2);
             this.color = color;
         }
 
 
+        /**
+         * Instantiates a new Builder.
+         *
+         * @param diameterDp the diameter dp
+         * @param color      the color
+         */
         public Builder(int diameterDp, String color) {
             this.radius = DeviceUtils.dp2px(diameterDp / 2);
             this.color = Color.parseColor(color);
         }
 
 
+        /**
+         * Disable shadow on surface builder.
+         *
+         * @return the builder
+         */
         public Builder disableShadowOnSurface() {
             this.applySurfaceShadow = false;
             return this;
         }
 
 
+        /**
+         * Sets tag.
+         *
+         * @param tag the tag
+         * @return the tag
+         */
         public Builder setTag(String tag) {
             this.tag = tag;
             return this;
         }
 
 
+        /**
+         * Build drawable circle.
+         *
+         * @return the drawable circle
+         */
         public DrawableCircle build() {
             return new DrawableCircle(this);
         }
 
 
+        /**
+         * Show.
+         *
+         * @param imageView the image view
+         */
         public void show(ImageView imageView) {
             imageView.setImageDrawable(new DrawableCircle(this));
         }
     }
 
 
+    /**
+     * Gets tag.
+     *
+     * @return the tag
+     */
     public String getTag() { return builder.tag; }
 
 }

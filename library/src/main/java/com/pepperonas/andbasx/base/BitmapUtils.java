@@ -29,6 +29,8 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 
 /**
+ * The type Bitmap utils.
+ *
  * @author Martin Pfeffer (pepperonas)
  */
 public class BitmapUtils {

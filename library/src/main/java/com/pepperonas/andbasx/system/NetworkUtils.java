@@ -28,6 +28,8 @@ import com.pepperonas.andbasx.AndBasx;
 import com.pepperonas.jbasx.log.Log;
 
 /**
+ * The type Network utils.
+ *
  * @author Martin Pfeffer (pepperonas)
  */
 public class NetworkUtils {
@@ -35,8 +37,26 @@ public class NetworkUtils {
     private static final String TAG = "NetworkUtils";
 
 
+    /**
+     * The enum Network type.
+     */
     public enum NetworkType {
-        WIFI_FAST, MOBILE_FAST, MOBILE_MIDDLE, MOBILE_SLOW, NONE,
+        /**
+         * Wifi fast network type.
+         */
+        WIFI_FAST, /**
+         * Mobile fast network type.
+         */
+        MOBILE_FAST, /**
+         * Mobile middle network type.
+         */
+        MOBILE_MIDDLE, /**
+         * Mobile slow network type.
+         */
+        MOBILE_SLOW, /**
+         * None network type.
+         */
+        NONE,
     }
 
 
@@ -44,14 +64,25 @@ public class NetworkUtils {
     private NetworkListener listener;
 
 
+    /**
+     * The interface Network listener.
+     */
     public interface NetworkListener {
 
+        /**
+         * On network changed.
+         *
+         * @param ot the ot
+         * @param nt the nt
+         */
         void onNetworkChanged(NetworkType ot, NetworkType nt);
     }
 
 
     /**
      * Requires {@link android.Manifest.permission#ACCESS_WIFI_STATE}
+     *
+     * @return the boolean
      */
     public static boolean isWifiConnected() {
         ConnectivityManager connManager = (ConnectivityManager)
@@ -63,11 +94,21 @@ public class NetworkUtils {
     }
 
 
+    /**
+     * Gets network type.
+     *
+     * @return the network type
+     */
     public final synchronized NetworkType getNetworkType() {
         return type;
     }
 
 
+    /**
+     * Sets listener.
+     *
+     * @param l the l
+     */
     public final void setListener(NetworkListener l) {
         listener = l;
     }

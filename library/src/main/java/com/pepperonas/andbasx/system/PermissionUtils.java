@@ -29,6 +29,8 @@ import android.util.Log;
 import com.pepperonas.andbasx.AndBasx;
 
 /**
+ * The type Permission utils.
+ *
  * @author Martin Pfeffer (pepperonas)
  */
 public class PermissionUtils {
@@ -36,6 +38,12 @@ public class PermissionUtils {
     private static final String TAG = "PermissionUtils";
 
 
+    /**
+     * Ensure permissions boolean.
+     *
+     * @param permissions the permissions
+     * @return the boolean
+     */
     public static boolean ensurePermissions(@NonNull String... permissions) {
         for (String permission : permissions) {
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {

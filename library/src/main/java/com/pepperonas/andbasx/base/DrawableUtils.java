@@ -22,6 +22,8 @@ import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
 
 /**
+ * The type Drawable utils.
+ *
  * @author Martin Pfeffer (pepperonas)
  */
 public class DrawableUtils {

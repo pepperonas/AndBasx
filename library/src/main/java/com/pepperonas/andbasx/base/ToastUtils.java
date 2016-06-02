@@ -23,6 +23,8 @@ import android.widget.Toast;
 import com.pepperonas.andbasx.AndBasx;
 
 /**
+ * The type Toast utils.
+ *
  * @author Martin Pfeffer (pepperonas)
  */
 public class ToastUtils {

@@ -38,6 +38,8 @@ import com.pepperonas.andbasx.system.DeviceUtils;
 
 
 /**
+ * The type Splash view.
+ *
  * @author Martin Pfeffer (pepperonas)
  */
 public class SplashView extends View {
@@ -55,16 +57,34 @@ public class SplashView extends View {
     private boolean finished = false;
 
 
+    /**
+     * Instantiates a new Splash view.
+     *
+     * @param context the context
+     */
     public SplashView(Context context) {
         this(context, null);
     }
 
 
+    /**
+     * Instantiates a new Splash view.
+     *
+     * @param context the context
+     * @param attrs   the attrs
+     */
     public SplashView(Context context, AttributeSet attrs) {
         this(context, attrs, 0);
     }
 
 
+    /**
+     * Instantiates a new Splash view.
+     *
+     * @param context  the context
+     * @param attrs    the attrs
+     * @param defStyle the def style
+     */
     public SplashView(Context context, AttributeSet attrs, int defStyle) {
         super(context, attrs, defStyle);
 
@@ -109,6 +129,9 @@ public class SplashView extends View {
     }
 
 
+    /**
+     * Finish.
+     */
     public void finish() {
 
         mPaintCircle.setColor(AndBasx.getContext().getResources().getColor(this.animationColor));
@@ -170,6 +193,11 @@ public class SplashView extends View {
     }
 
 
+    /**
+     * Sets icon.
+     *
+     * @param bitmap the bitmap
+     */
     public void setIcon(Bitmap bitmap) {
         this.icon = bitmap;
     }

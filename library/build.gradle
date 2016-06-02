@@ -11,7 +11,7 @@ android {
         minSdkVersion 11
         targetSdkVersion 23
         versionCode 1
-        versionName "0.1.4"
+        versionName "0.1.5"
     }
     lintOptions {
         abortOnError false
@@ -21,8 +21,9 @@ android {
 
 dependencies {
     compile fileTree(include: ['*.jar'], dir: 'libs')
-    compile 'com.android.support:appcompat-v7:23.4.0'
     compile files('libs/jbasx-0.1.14.jar')
+    compile 'com.android.support:appcompat-v7:23.4.0'
+    compile 'com.google.android.gms:play-services-gcm:9.0.1'
 }
 
 task sourcesJar(type: Jar) {

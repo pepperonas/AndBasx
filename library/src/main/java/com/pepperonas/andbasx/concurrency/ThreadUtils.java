@@ -22,6 +22,8 @@ import android.os.Looper;
 import java.util.concurrent.Callable;
 
 /**
+ * The type Thread utils.
+ *
  * @author Martin Pfeffer (pepperonas)
  */
 public class ThreadUtils {
@@ -29,6 +31,13 @@ public class ThreadUtils {
     private static final String TAG = "ThreadUtils";
 
 
+    /**
+     * Run delayed void.
+     *
+     * @param delay    the delay
+     * @param callable the callable
+     * @return the void
+     */
     public static Void runDelayed(int delay, final Callable<Void> callable) {
         final Handler handler = new Handler();
         handler.postDelayed(new Runnable() {
@@ -45,6 +54,12 @@ public class ThreadUtils {
     }
 
 
+    /**
+     * Run from background void.
+     *
+     * @param callable the callable
+     * @return the void
+     */
     public static Void runFromBackground(final Callable<Void> callable) {
         Handler handler = new Handler(Looper.getMainLooper());
         handler.post(new Runnable() {

@@ -34,19 +34,23 @@ import java.util.List;
 import java.util.Locale;
 
 /**
+ * The type Device utils.
+ *
  * @author Martin Pfeffer (pepperonas)
  */
 public class DeviceUtils {
 
+    /**
+     * The constant TAG.
+     */
     public static final String TAG = "DeviceUtils";
 
 
     /**
      * Collect device information.
      *
-     * @return List which contains two lists.
-     * The first list contains the description (such as 'MANUFACTURE').
-     * The second list contains the value (such as 'Samsung').
+     * @return List which contains two lists. The first list contains the description (such as 'MANUFACTURE'). The second list
+     * contains the value (such as 'Samsung').
      */
     public static List<List<String>> getInfo() {
         DisplayMetrics dm = AndBasx.getContext().getResources().getDisplayMetrics();
@@ -148,6 +152,8 @@ public class DeviceUtils {
 
 
     /**
+     * Gets screen inches.
+     *
      * @return The screen size in inches.
      */
     public static float getScreenInches() {
@@ -168,6 +174,7 @@ public class DeviceUtils {
     /**
      * Convert density dependent pixel into density independent pixel.
      *
+     * @param dip the dip
      * @return Density independent pixel (dp).
      */
     public static int dp2px(int dip) {
@@ -178,6 +185,7 @@ public class DeviceUtils {
     /**
      * Convert density independent pixel into density dependent pixel.
      *
+     * @param px the px
      * @return Density dependent pixel (px).
      */
     public static int px2dp(int px) {
@@ -188,6 +196,7 @@ public class DeviceUtils {
     /**
      * Convert density density dependent pixel in to scaled density pixel.
      *
+     * @param sp the sp
      * @return Scaled density dependent pixel.
      */
     public static int sp2px(float sp) {
@@ -196,6 +205,8 @@ public class DeviceUtils {
 
 
     /**
+     * Gets density.
+     *
      * @return The device's density.
      */
     public static int getDensity() {
@@ -206,6 +217,11 @@ public class DeviceUtils {
     }
 
 
+    /**
+     * Gets locale.
+     *
+     * @return the locale
+     */
     public static Locale getLocale() {
         return AndBasx.getContext().getResources().getConfiguration().locale;
     }

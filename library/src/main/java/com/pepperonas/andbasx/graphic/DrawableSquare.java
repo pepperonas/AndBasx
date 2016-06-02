@@ -29,6 +29,8 @@ import com.pepperonas.andbasx.system.DeviceUtils;
 import com.pepperonas.jbasx.div.MaterialColor;
 
 /**
+ * The type Drawable square.
+ *
  * @author Martin Pfeffer (pepperonas)
  */
 public class DrawableSquare extends Drawable {
@@ -37,6 +39,11 @@ public class DrawableSquare extends Drawable {
     private final Builder builder;
 
 
+    /**
+     * Instantiates a new Drawable square.
+     *
+     * @param builder the builder
+     */
     public DrawableSquare(Builder builder) {
         this.builder = builder;
         paint = new Paint();
@@ -80,6 +87,9 @@ public class DrawableSquare extends Drawable {
     }
 
 
+    /**
+     * The type Builder.
+     */
     public static class Builder {
 
         private final float size;
@@ -90,47 +100,91 @@ public class DrawableSquare extends Drawable {
         private boolean applySurfaceShadow = true;
 
 
+        /**
+         * Instantiates a new Builder.
+         *
+         * @param sizeDp the size dp
+         * @param color  the color
+         */
         public Builder(int sizeDp, int color) {
             this.size = DeviceUtils.dp2px(sizeDp);
             this.color = color;
         }
 
 
+        /**
+         * Instantiates a new Builder.
+         *
+         * @param sizeDp the size dp
+         * @param color  the color
+         */
         public Builder(int sizeDp, String color) {
             this.size = DeviceUtils.dp2px(sizeDp);
             this.color = Color.parseColor(color);
         }
 
 
+        /**
+         * Rounded builder.
+         *
+         * @param radiusDp the radius dp
+         * @return the builder
+         */
         public Builder rounded(int radiusDp) {
             this.rounded = DeviceUtils.dp2px(radiusDp);
             return this;
         }
 
 
+        /**
+         * Disable shadow on surface builder.
+         *
+         * @return the builder
+         */
         public Builder disableShadowOnSurface() {
             this.applySurfaceShadow = false;
             return this;
         }
 
 
+        /**
+         * Sets tag.
+         *
+         * @param tag the tag
+         * @return the tag
+         */
         public Builder setTag(String tag) {
             this.tag = tag;
             return this;
         }
 
 
+        /**
+         * Build drawable square.
+         *
+         * @return the drawable square
+         */
         public DrawableSquare build() {
             return new DrawableSquare(this);
         }
 
 
+        /**
+         * Show.
+         *
+         * @param imageView the image view
+         */
         public void show(ImageView imageView) {
             imageView.setImageDrawable(this.build());
         }
     }
 
 
+    /**
+     * Gets tag.
+     *
+     * @return the tag
+     */
     public String getTag() { return builder.tag; }
 
 }

@@ -23,17 +23,20 @@ import android.content.pm.PackageManager;
 import com.pepperonas.andbasx.AndBasx;
 
 /**
+ * The type App utils.
+ *
  * @author Martin Pfeffer (pepperonas)
  */
 public class AppUtils {
 
     /**
+     * Gets version code.
+     *
      * @return The app's version-code (such as '1').
      */
     public static int getVersionCode() {
         try {
-            PackageInfo pi = AndBasx.getContext().getPackageManager()
-                                    .getPackageInfo(AndBasx.getContext().getPackageName(), 0);
+            PackageInfo pi = AndBasx.getContext().getPackageManager().getPackageInfo(AndBasx.getContext().getPackageName(), 0);
             return pi.versionCode;
         } catch (PackageManager.NameNotFoundException e) {
             e.printStackTrace();
@@ -46,12 +49,14 @@ public class AppUtils {
 
 
     /**
+     * Gets version name.
+     *
      * @return The app's version-name (such as '1.2.3b').
      */
     public static String getVersionName() {
         try {
             PackageInfo pi = AndBasx.getContext().getPackageManager()
-                                    .getPackageInfo(AndBasx.getContext().getPackageName(), 0);
+                    .getPackageInfo(AndBasx.getContext().getPackageName(), 0);
             return pi.versionName;
         } catch (PackageManager.NameNotFoundException e) {
             e.printStackTrace();
@@ -64,12 +69,14 @@ public class AppUtils {
 
 
     /**
+     * Gets app name.
+     *
      * @return The app's name (such as 'My Android App').
      */
     public static String getAppName() {
         try {
             ApplicationInfo ai = AndBasx.getContext().getPackageManager()
-                                        .getApplicationInfo(AndBasx.getContext().getPackageName(), 0);
+                    .getApplicationInfo(AndBasx.getContext().getPackageName(), 0);
             return (String) (ai != null ? AndBasx.getContext().getPackageManager().getApplicationLabel(ai) : "");
         } catch (PackageManager.NameNotFoundException e) {
             e.printStackTrace();
@@ -83,6 +90,8 @@ public class AppUtils {
 
     /**
      * * @return The app's version-info (such as 'My Android App 1.2').
+     *
+     * @return the version info
      */
     public static String getVersionInfo() {
         return getAppName() + " " + getVersionName();

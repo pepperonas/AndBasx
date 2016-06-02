@@ -28,12 +28,38 @@ import com.pepperonas.jbasx.base.TextUtils;
 import com.pepperonas.jbasx.color.ColorUtils;
 
 /**
+ * The type Notification utils.
+ *
  * @author Martin Pfeffer (pepperonas)
  */
 public class NotificationUtils {
 
+    /**
+     * The enum Led color.
+     */
     public enum LedColor {
-        Green("0x00ff00"), Blue("0x0000ff"), Red("0xff0000"), Yellow("0xfff000"), White("0xffffff"), Purple("0xff00ff"), Orange("0xff6600");
+        /**
+         * Green led color.
+         */
+        Green("0x00ff00"), /**
+         * Blue led color.
+         */
+        Blue("0x0000ff"), /**
+         * Red led color.
+         */
+        Red("0xff0000"), /**
+         * Yellow led color.
+         */
+        Yellow("0xfff000"), /**
+         * White led color.
+         */
+        White("0xffffff"), /**
+         * Purple led color.
+         */
+        Purple("0xff00ff"), /**
+         * Orange led color.
+         */
+        Orange("0xff6600");
 
         private String color;
 
@@ -43,12 +69,22 @@ public class NotificationUtils {
         }
 
 
+        /**
+         * Gets color.
+         *
+         * @return the color
+         */
         public String getColor() {
             return color;
         }
     }
 
 
+    /**
+     * Instantiates a new Notification utils.
+     *
+     * @param builder the builder
+     */
     public NotificationUtils(Builder builder) {
         int color = 0;
         if (builder.ledColor != null) {
@@ -99,6 +135,9 @@ public class NotificationUtils {
     }
 
 
+    /**
+     * The type Builder.
+     */
     public static class Builder {
 
         private final Context context;
@@ -120,54 +159,108 @@ public class NotificationUtils {
         private boolean sound = true;
 
 
+        /**
+         * Instantiates a new Builder.
+         *
+         * @param context  the context
+         * @param receiver the receiver
+         */
         public Builder(Context context, Class<?> receiver) {
             this.context = context;
             this.receiver = receiver;
         }
 
 
+        /**
+         * Title builder.
+         *
+         * @param title the title
+         * @return the builder
+         */
         public Builder title(CharSequence title) {
             this.title = title;
             return this;
         }
 
 
+        /**
+         * Ticker builder.
+         *
+         * @param ticker the ticker
+         * @return the builder
+         */
         public Builder ticker(CharSequence ticker) {
             this.ticker = ticker;
             return this;
         }
 
 
+        /**
+         * Subtext builder.
+         *
+         * @param subtext the subtext
+         * @return the builder
+         */
         public Builder subtext(CharSequence subtext) {
             this.subtext = subtext;
             return this;
         }
 
 
+        /**
+         * Message builder.
+         *
+         * @param message the message
+         * @return the builder
+         */
         public Builder message(CharSequence message) {
             this.message = message;
             return this;
         }
 
 
+        /**
+         * Icon builder.
+         *
+         * @param iconId the icon id
+         * @return the builder
+         */
         public Builder icon(int iconId) {
             this.iconId = iconId;
             return this;
         }
 
 
+        /**
+         * Dismissable builder.
+         *
+         * @param dismissable the dismissable
+         * @return the builder
+         */
         public Builder dismissable(boolean dismissable) {
             this.onGoing = !dismissable;
             return this;
         }
 
 
+        /**
+         * Auto cancel builder.
+         *
+         * @param autoCancel the auto cancel
+         * @return the builder
+         */
         public Builder autoCancel(boolean autoCancel) {
             this.autoCancel = autoCancel;
             return this;
         }
 
 
+        /**
+         * Sound builder.
+         *
+         * @param sound the sound
+         * @return the builder
+         */
         public Builder sound(boolean sound) {
             if (sound) this.flags |= Notification.DEFAULT_SOUND;
             else this.flags ^= Notification.DEFAULT_SOUND;
@@ -177,6 +270,12 @@ public class NotificationUtils {
         }
 
 
+        /**
+         * Vibration builder.
+         *
+         * @param vibration the vibration
+         * @return the builder
+         */
         public Builder vibration(boolean vibration) {
             if (vibration) this.flags |= Notification.DEFAULT_VIBRATE;
             else this.flags ^= Notification.DEFAULT_VIBRATE;
@@ -186,6 +285,12 @@ public class NotificationUtils {
         }
 
 
+        /**
+         * Led color builder.
+         *
+         * @param ledColor the led color
+         * @return the builder
+         */
         public Builder ledColor(LedColor ledColor) {
             if (ledColor != null) this.flags |= Notification.FLAG_SHOW_LIGHTS;
             else this.flags ^= Notification.FLAG_SHOW_LIGHTS;
@@ -194,6 +299,13 @@ public class NotificationUtils {
         }
 
 
+        /**
+         * Led duration builder.
+         *
+         * @param onMs  the on ms
+         * @param offMs the off ms
+         * @return the builder
+         */
         public Builder ledDuration(int onMs, int offMs) {
             this.onMs = onMs;
             this.offMs = offMs;
@@ -201,18 +313,33 @@ public class NotificationUtils {
         }
 
 
+        /**
+         * Led brightness builder.
+         *
+         * @param percent the percent
+         * @return the builder
+         */
         public Builder ledBrightness(int percent) {
             this.ledBrightnessPercent = percent;
             return this;
         }
 
 
+        /**
+         * When builder.
+         *
+         * @param when the when
+         * @return the builder
+         */
         public Builder when(long when) {
             this.when = when;
             return this;
         }
 
 
+        /**
+         * Fire.
+         */
         public void fire() {
             new NotificationUtils(this);
         }

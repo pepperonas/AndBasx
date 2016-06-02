@@ -60,18 +60,35 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
+ * The type System utils.
+ *
  * @author Martin Pfeffer (pepperonas)
  */
 public class SystemUtils {
 
     private static final String TAG = "SystemUtils";
 
+    /**
+     * The constant MAX_BRIGHTNESS.
+     */
     public static final int MAX_BRIGHTNESS = 255;
+    /**
+     * The constant MIN_BRIGHTNESS.
+     */
     public static final int MIN_BRIGHTNESS = 0;
 
 
+    /**
+     * The enum Network type.
+     */
     public enum NetworkType {
-        Mobile, Wifi
+        /**
+         * Mobile network type.
+         */
+        Mobile, /**
+         * Wifi network type.
+         */
+        Wifi
     }
 
 
@@ -639,6 +656,11 @@ public class SystemUtils {
     }
 
 
+    /**
+     * Run as root.
+     *
+     * @param cmds the cmds
+     */
     public static void runAsRoot(String[] cmds) {
         try {
             Process p = Runtime.getRuntime().exec("su");
