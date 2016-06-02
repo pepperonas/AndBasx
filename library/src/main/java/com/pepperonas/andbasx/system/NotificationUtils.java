@@ -98,14 +98,14 @@ public class NotificationUtils {
 
         Notification.Builder nb = new Notification.Builder(builder.context);
         nb.setContentIntent(pendingIntent)
-          .setSmallIcon(builder.iconId)
-          .setTicker(builder.ticker)
-          .setContentTitle(builder.title)
-          .setContentText(builder.message)
-          .setWhen(builder.when == 0 ? System.currentTimeMillis() : builder.when)
-          .setAutoCancel(builder.autoCancel)
-          .setDefaults(builder.flags)
-          .setOngoing(builder.onGoing);
+                .setSmallIcon(builder.iconId)
+                .setTicker(builder.ticker)
+                .setContentTitle(builder.title)
+                .setContentText(builder.message)
+                .setWhen(builder.when == 0 ? System.currentTimeMillis() : builder.when)
+                .setAutoCancel(builder.autoCancel)
+                .setDefaults(builder.flags)
+                .setOngoing(builder.onGoing);
 
         if (builder.ledColor != null) {
             nb.setLights(color, builder.onMs, builder.offMs);
@@ -123,7 +123,7 @@ public class NotificationUtils {
         }
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN
-            && !TextUtils.isEmpty(builder.subtext)) {
+                && !TextUtils.isEmpty(builder.subtext)) {
             nb.setSubText(builder.subtext);
         }
 
@@ -131,7 +131,7 @@ public class NotificationUtils {
 
         NotificationManager nm = (NotificationManager) builder.context.getSystemService(Context.NOTIFICATION_SERVICE);
 
-        nm.notify(0, notification);
+        nm.notify(builder.notificationId, notification);
     }
 
 
@@ -142,6 +142,7 @@ public class NotificationUtils {
 
         private final Context context;
         private final Class<?> receiver;
+        private final int notificationId;
         private CharSequence title;
         private CharSequence message;
         private CharSequence ticker;
@@ -165,9 +166,10 @@ public class NotificationUtils {
          * @param context  the context
          * @param receiver the receiver
          */
-        public Builder(Context context, Class<?> receiver) {
+        public Builder(Context context, Class<?> receiver, int notificationId) {
             this.context = context;
             this.receiver = receiver;
+            this.notificationId = notificationId;
         }
 
 
