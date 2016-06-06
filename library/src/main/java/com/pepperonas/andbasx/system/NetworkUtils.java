@@ -89,7 +89,7 @@ public class NetworkUtils {
      * @param onlyIps Whenever only IP-addresses should be shown.
      * @return {@link List<String>} containing network addresses.
      */
-    public static List<String> getIpAddresses(boolean onlyIps) {
+    public static List<String> getNetworkAddresses(boolean onlyIps) {
         List<String> ipList = new ArrayList<>();
         try {
             for (Enumeration<NetworkInterface> en = NetworkInterface.getNetworkInterfaces(); en.hasMoreElements(); ) {
