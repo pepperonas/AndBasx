@@ -25,7 +25,16 @@ import android.net.NetworkInfo;
 import android.telephony.TelephonyManager;
 
 import com.pepperonas.andbasx.AndBasx;
+import com.pepperonas.jbasx.Jbasx;
 import com.pepperonas.jbasx.log.Log;
+
+import java.net.InetAddress;
+import java.net.NetworkInterface;
+import java.net.SocketException;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Enumeration;
+import java.util.List;
 
 /**
  * The type Network utils.
@@ -35,6 +44,77 @@ import com.pepperonas.jbasx.log.Log;
 public class NetworkUtils {
 
     private static final String TAG = "NetworkUtils";
+
+
+    /**
+     * Gets ip address.
+     *
+     * @param useIpV4 the use ip v 4
+     * @return the ip address
+     */
+    public static String getIpAddress(boolean useIpV4) {
+        String ip = "";
+        try {
+            List<NetworkInterface> interfaces = Collections.list(NetworkInterface.getNetworkInterfaces());
+            for (NetworkInterface intf : interfaces) {
+                List<InetAddress> addrs = Collections.list(intf.getInetAddresses());
+                for (InetAddress addr : addrs) {
+                    if (!addr.isLoopbackAddress()) {
+                        ip = addr.getHostAddress();
+                        boolean isIPv4 = ip.indexOf(':') < 0;
+                        if (useIpV4) {
+                            if (isIPv4) {
+                                return ip;
+                            }
+                        } else {
+                            if (!isIPv4) {
+                                int delim = ip.indexOf('%');
+                                return delim < 0 ? ip.toUpperCase() : ip.substring(0, delim).toUpperCase();
+                            }
+                        }
+                    }
+                }
+            }
+        } catch (Exception e) {
+            Log.e(TAG, "getIpAddress: " + e);
+        }
+        return ip;
+    }
+
+
+    /**
+     * Collect network addresses.
+     * Requires android.Manifest.permission#INTERNET
+     *
+     * @param onlyIps Whenever only IP-addresses should be shown.
+     * @return {@link List<String>} containing network addresses.
+     */
+    public static List<String> getIpAddresses(boolean onlyIps) {
+        List<String> ipList = new ArrayList<>();
+        try {
+            for (Enumeration<NetworkInterface> en = NetworkInterface.getNetworkInterfaces(); en.hasMoreElements(); ) {
+                NetworkInterface nwInterface = en.nextElement();
+                for (Enumeration<InetAddress> ipAddress = nwInterface.getInetAddresses(); ipAddress.hasMoreElements(); ) {
+                    String ip;
+                    if (onlyIps) {
+                        ip = ipAddress.nextElement().toString().replace("/", "");
+                        if (ip.contains(".")) {
+                            ipList.add(ip);
+                        }
+                    } else {
+                        ip = ipAddress.nextElement().toString();
+                        ipList.add(ip);
+                    }
+                }
+            }
+        } catch (SocketException e) {
+            if (Jbasx.mLog == Jbasx.LogMode.ALL) {
+                Log.e(TAG, "getNetworkAddresses - Retrieving network interfaces failed.");
+                e.printStackTrace();
+            }
+        }
+        return ipList;
+    }
 
 
     /**
@@ -166,7 +246,7 @@ public class NetworkUtils {
         int type = info.getType();
         int subType = info.getSubtype();
         if ((type == ConnectivityManager.TYPE_WIFI)
-            || (type == ConnectivityManager.TYPE_ETHERNET)) {
+                || (type == ConnectivityManager.TYPE_ETHERNET)) {
             return NetworkType.WIFI_FAST;
         }
 
