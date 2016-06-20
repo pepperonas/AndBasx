@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  ~ Copyright (c) 2016 Martin Pfeffer
+  ~
+  ~ Licensed under the Apache License, Version 2.0 (the "License");
+  ~ you may not use this file except in compliance with the License.
+  ~ You may obtain a copy of the License at
+  ~
+  ~      http://www.apache.org/licenses/LICENSE-2.0
+  ~
+  ~ Unless required by applicable law or agreed to in writing, software
+  ~ distributed under the License is distributed on an "AS IS" BASIS,
+  ~ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  ~ See the License for the specific language governing permissions and
+  ~ limitations under the License.
+  -->
+
+<resources>
+
+    <string name="celsius" translatable="false">Celsius</string>
+    <string name="fahrenheit" translatable="false">Fahrenheit</string>
+
+    <string name="sym_celsius" translatable="false">°C</string>
+    <string name="sym_fahrenheit" translatable="false">F</string>
+
+    <string name="sym_euro" translatable="false">€</string>
+    <string name="sym_dollar" translatable="false">$</string>
+    <string name="sym_yen" translatable="false">¥</string>
+
+    <string name="sym_copyright" translatable="false">®</string>
+    <string name="sym_sq" translatable="false">²</string>
+
+    <string name="sym_mm" translatable="false">mm</string>
+    <string name="sym_mm_sq" translatable="false">mm²</string>
+    <string name="sym_x" translatable="false">x</string>
+    <string name="sym_diameter" translatable="false">Ø</string>
+    <string name="sym_wattage" translatable="false">Watt</string>
+    <string name="sym_equals" translatable="false">=</string>
+    <string name="sym_ml" translatable="false">ml</string>
+    <string name="sym_mg" translatable="false">mg</string>
+    <string name="sym_ohm" translatable="false">Ω</string>
+    <string name="sym_percent" translatable="false">%</string>
+    <string name="sym_ohm_p_m" translatable="false">Ω/m</string>
+    <string name="sym_watt" translatable="false">W</string>
+    <string name="sym_mwatt_p_mm_sq" translatable="false">mW/mm²</string>
+
+</resources>

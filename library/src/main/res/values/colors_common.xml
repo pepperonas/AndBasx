@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!--
+<?xml version="1.0" encoding="utf-8"?><!--
   ~ Copyright (c) 2016 Martin Pfeffer
   ~
   ~ Licensed under the Apache License, Version 2.0 (the "License");
@@ -27,5 +26,21 @@
     <color name="stock_android_teal">#009688</color>
     <color name="stock_android_teal_dark">#384248</color>
     <color name="stock_android_white">#FFFFFF</color>
+
+    <color name="notification_background_light">#fffafafa</color>
+    <color name="notification_icon_color_light">@color/grey_800</color>
+
+    <color name="notification_background">#de000000</color>
+    <color name="notification_icon_color">#ffffff</color>
+
+    <color name="notification_circle_bg">@color/blue_grey_500</color>
+
+    <color name="primary_text_default_material_light_failsafe">#de000000</color>
+    <color name="secondary_text_default_material_light_failsafe">#8a000000</color>
+
+    <color name="primary_text_default_material_dark_failsafe">#ffffffff</color>
+    <color name="secondary_text_default_material_dark_failsafe">#b3ffffff</color>
+
+    <color name="black_semi_transparent">#B2000000</color>
 
 </resources>
