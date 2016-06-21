@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!--
+<?xml version="1.0" encoding="utf-8"?><!--
   ~ Copyright (c) 2016 Martin Pfeffer
   ~
   ~ Licensed under the Apache License, Version 2.0 (the "License");
@@ -15,12 +14,10 @@
   ~ limitations under the License.
   -->
 
-<rotate
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<rotate xmlns:android="http://schemas.android.com/apk/res/android"
+    android:duration="0"
+    android:fillAfter="true"
     android:fromDegrees="0"
-    android:toDegrees="-90"
     android:pivotX="50%"
     android:pivotY="50%"
-    android:duration="0"
-    android:fillAfter="true">
-</rotate>
+    android:toDegrees="-90"></rotate>
