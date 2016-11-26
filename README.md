@@ -16,7 +16,7 @@ Add JitPack to your repositories:
 and add the library to your dependencies:
 
 ```
-    compile 'com.github.pepperonas:andbasx:0.2.4'
+    compile 'com.github.pepperonas:andbasx:0.2.5'
 ```
 
 This library may require the following permissions:
