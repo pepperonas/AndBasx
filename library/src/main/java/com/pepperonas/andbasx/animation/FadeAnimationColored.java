@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2016 Martin Pfeffer
+ * Copyright (c) 2017 Martin Pfeffer
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -17,7 +17,7 @@
 package com.pepperonas.andbasx.animation;
 
 import android.graphics.Color;
-import android.os.Build;
+import android.support.v4.content.ContextCompat;
 import android.view.View;
 import android.view.animation.AlphaAnimation;
 import android.view.animation.Animation;
@@ -105,7 +105,8 @@ public class FadeAnimationColored {
      * @param duration      the duration
      * @param startOffset   the start offset
      */
-    public FadeAnimationColored(View view, String color, float maxBrightness, float minBrightness, long duration, long startOffset) {
+    public FadeAnimationColored(View view, String color, float maxBrightness, float minBrightness, long duration,
+                                long startOffset) {
         this.view = view;
         this.colorId = Color.parseColor(color);
         this.maxBrightness = maxBrightness;
@@ -126,7 +127,8 @@ public class FadeAnimationColored {
      * @param duration      the duration
      * @param startOffset   the start offset
      */
-    public FadeAnimationColored(View view, int colorId, float maxBrightness, float minBrightness, long duration, long startOffset) {
+    public FadeAnimationColored(View view, int colorId, float maxBrightness, float minBrightness, long duration, long
+            startOffset) {
         this.view = view;
         this.colorId = AndBasx.getContext().getResources().getColor(colorId);
         this.maxBrightness = maxBrightness;
@@ -165,7 +167,7 @@ public class FadeAnimationColored {
 
 
     private void prepareView() {
-        this.view.setBackgroundColor(this.colorId);
+        this.view.setBackgroundColor(ContextCompat.getColor(AndBasx.getContext(), this.colorId));
         this.view.setAlpha(0f);
     }
 

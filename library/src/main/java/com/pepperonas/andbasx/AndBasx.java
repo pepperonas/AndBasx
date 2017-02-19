@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2016 Martin Pfeffer
+ * Copyright (c) 2017 Martin Pfeffer
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -198,7 +198,7 @@ public class AndBasx {
          * @return The license text.
          */
         public static String getLicense() {
-            return "Copyright (c) 2016 Martin Pfeffer\n" +
+            return "Copyright (c) 2017 Martin Pfeffer\n" +
                     " \n" +
                     "Licensed under the Apache License, Version 2.0 (the \"License\");\n" +
                     "you may not use this file except in compliance with the License.\n" +
