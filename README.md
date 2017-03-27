@@ -37,7 +37,7 @@ This library may require the following permissions:
 
 ## Developed By
 
-Martin Pfeffer - https://celox.io - <martin.pfeffer@celox.io>
+* Martin Pfeffer - https://celox.io - <martin.pfeffer@celox.io>
 
 
 ## License
