@@ -2,8 +2,8 @@
 This tiny Android library provides common code for Android.
 
 
-##How to use
-###1. Import
+## How to use
+### 1. Import
 Add JitPack to your repositories:
 
 ```
@@ -26,7 +26,7 @@ This library may require the following permissions:
 ```
 
 
-##ProGuard
+## ProGuard
 ```
 -keep class com.pepperonas.jbasx.** { *; }
 -dontwarn com.pepperonas.jbasx.**
@@ -35,17 +35,17 @@ This library may require the following permissions:
 ```
 
 
-##Showcase
+## Showcase
 Soon...
 
-##Developed By
+## Developed By
 
 * Martin Pfeffer - http://www.pepperonas.com - <pepperonas@gmail.com>
 
 
-##License
+## License
 
-    Copyright 2016 Martin Pfeffer
+    Copyright 2017 Martin Pfeffer
 
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
