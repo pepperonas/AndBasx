@@ -16,14 +16,54 @@
 
 package com.pepperonas.showcase;
 
-import android.support.v7.app.AppCompatActivity;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
+import android.widget.ImageView;
+import com.pepperonas.andbasx.concurrency.LoaderTaskUtils.Action;
+import com.pepperonas.andbasx.concurrency.LoaderTaskUtils.Builder;
+import com.pepperonas.andbasx.interfaces.LoaderTaskListener;
+import java.io.InputStream;
 
 public class MainActivity extends AppCompatActivity {
+
+    private static final String TAG = "MainActivity";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        final ImageView iv = (ImageView) findViewById(R.id.imageView);
+
+        new Builder(this, new LoaderTaskListener() {
+            @Override
+            public void onLoaderTaskSuccess(Action action, String msg) {
+
+            }
+
+            @Override
+            public void onLoaderTaskFailed(Action action, String msg) {
+
+            }
+
+            @Override
+            public void onLoaderTaskSuccess(Action action, final InputStream inputStream) {
+                runOnUiThread(new Runnable() {
+                    @Override
+                    public void run() {
+                        final Bitmap bmp = BitmapFactory.decodeStream(inputStream);
+                        iv.setImageBitmap(bmp);
+                    }
+                });
+            }
+
+            @Override
+            public void onLoaderTaskFailed(Action action, InputStream inputStream) {
+
+            }
+        }, "https://celox.io/file/ic_launcher-1.png")
+            .launch();
     }
 }

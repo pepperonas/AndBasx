@@ -26,7 +26,6 @@ import android.support.annotation.DrawableRes;
 import android.support.annotation.NonNull;
 import android.support.annotation.StringRes;
 import android.util.TypedValue;
-
 import com.pepperonas.andbasx.AndBasx;
 
 /**
@@ -55,8 +54,11 @@ public class Loader {
      */
     public static Drawable getDrawable(@DrawableRes int drawableId) {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-            return AndBasx.getContext().getResources().getDrawable(drawableId, AndBasx.getContext().getTheme());
-        } else return AndBasx.getContext().getResources().getDrawable(drawableId);
+            return AndBasx.getContext().getResources()
+                .getDrawable(drawableId, AndBasx.getContext().getTheme());
+        } else {
+            return AndBasx.getContext().getResources().getDrawable(drawableId);
+        }
     }
 
 
@@ -67,8 +69,19 @@ public class Loader {
      * @return the int
      */
     public static int resolveDrawableId(@NonNull String source) {
-        String uri = "drawable/" + source;
-        return AndBasx.getContext().getResources().getIdentifier(uri, null, AndBasx.getContext().getPackageName());
+        return AndBasx.getContext().getResources()
+            .getIdentifier("drawable/" + source, null, AndBasx.getContext().getPackageName());
+    }
+
+    /**
+     * Resolve drawable id int.
+     *
+     * @param source the source
+     * @return the int
+     */
+    public static int resolveDrawableIdAlt(@NonNull String source) {
+        return AndBasx.getContext().getResources()
+            .getIdentifier("@drawable/" + source, null, AndBasx.getContext().getPackageName());
     }
 
 
@@ -76,7 +89,7 @@ public class Loader {
      * Gets attr.
      *
      * @param context the context
-     * @param attrId  the attr id
+     * @param attrId the attr id
      * @return the attr
      */
     public static int getAttr(@NonNull Context context, @AttrRes int attrId) {
@@ -96,7 +109,9 @@ public class Loader {
     public static int getColor(@ColorRes int colorId) {
         if ((Build.VERSION.SDK_INT >= Build.VERSION_CODES.M)) {
             return AndBasx.getContext().getColor(colorId);
-        } else return AndBasx.getContext().getResources().getColor(colorId);
+        } else {
+            return AndBasx.getContext().getResources().getColor(colorId);
+        }
     }
 
 }

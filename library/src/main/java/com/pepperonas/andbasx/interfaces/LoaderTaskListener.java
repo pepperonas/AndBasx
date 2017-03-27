@@ -17,6 +17,7 @@
 package com.pepperonas.andbasx.interfaces;
 
 import com.pepperonas.andbasx.concurrency.LoaderTaskUtils;
+import java.io.InputStream;
 
 /**
  * The interface Loader task listener.
@@ -29,7 +30,7 @@ public interface LoaderTaskListener {
      * On loader task success.
      *
      * @param action the action
-     * @param msg    the msg
+     * @param msg the msg
      */
     void onLoaderTaskSuccess(LoaderTaskUtils.Action action, String msg);
 
@@ -37,8 +38,24 @@ public interface LoaderTaskListener {
      * On loader task failed.
      *
      * @param action the action
-     * @param msg    the msg
+     * @param msg the msg
      */
     void onLoaderTaskFailed(LoaderTaskUtils.Action action, String msg);
+
+    /**
+     * On loader task success.
+     *
+     * @param action the action
+     * @param inputStream the inputStream
+     */
+    void onLoaderTaskSuccess(LoaderTaskUtils.Action action, InputStream inputStream);
+
+    /**
+     * On loader task failed.
+     *
+     * @param action the action
+     * @param inputStream the inputStream
+     */
+    void onLoaderTaskFailed(LoaderTaskUtils.Action action, InputStream inputStream);
 
 }

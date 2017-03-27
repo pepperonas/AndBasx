@@ -14,20 +14,21 @@
  * limitations under the License.
  */
 
-// Top-level build file where you can add configuration options common to all sub-projects/modules.
+package com.pepperonas.showcase;
 
-buildscript {
-    repositories {
-        jcenter()
-    }
-    dependencies {
-        classpath 'com.android.tools.build:gradle:2.4.0-alpha3'
-        classpath 'com.github.dcendents:android-maven-gradle-plugin:1.4.1'
-    }
-}
+import android.app.Application;
+import com.pepperonas.andbasx.AndBasx;
 
-allprojects {
-    repositories {
-        jcenter()
+/**
+ * @author Martin Pfeffer
+ * @see <a href="https://celox.io">https://celox.io</a>
+ */
+public class App extends Application {
+
+    @Override
+    public void onCreate() {
+        super.onCreate();
+
+        AndBasx.init(this);
     }
 }

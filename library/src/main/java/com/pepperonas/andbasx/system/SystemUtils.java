@@ -48,7 +48,7 @@ import android.view.MotionEvent;
 
 import com.pepperonas.andbasx.AndBasx;
 import com.pepperonas.andbasx.base.ToastUtils;
-import com.pepperonas.andbasx.datatype.InstalledApp;
+import com.pepperonas.andbasx.model.InstalledApp;
 import com.pepperonas.jbasx.log.Log;
 
 import java.io.ByteArrayOutputStream;

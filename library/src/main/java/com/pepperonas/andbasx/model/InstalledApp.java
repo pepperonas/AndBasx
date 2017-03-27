@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.pepperonas.andbasx.datatype;
+package com.pepperonas.andbasx.model;
 
 import android.content.pm.ApplicationInfo;
 
