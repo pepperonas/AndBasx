@@ -35,12 +35,9 @@ This library may require the following permissions:
 ```
 
 
-## Showcase
-Soon...
-
 ## Developed By
 
-* Martin Pfeffer - http://www.pepperonas.com - <pepperonas@gmail.com>
+Martin Pfeffer - https://celox.io - <martin.pfeffer@celox.io>
 
 
 ## License
