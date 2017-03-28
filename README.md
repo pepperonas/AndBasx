@@ -22,7 +22,7 @@ and add the library to your dependencies:
 This library may require the following permissions:
 
 ```
-    ACCESS_WIFI_STATE, CHANGE_WIFI_STATE, READ_SYNC_SETTINGS
+    INTERNET, ACCESS_WIFI_STATE, CHANGE_WIFI_STATE, READ_SYNC_SETTINGS
 ```
 
 

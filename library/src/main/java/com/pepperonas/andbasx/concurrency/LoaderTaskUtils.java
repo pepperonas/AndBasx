@@ -307,7 +307,6 @@ public class LoaderTaskUtils extends AsyncTask<String, String, String> {
 
             this.ctx = context;
             this.loaderTaskListener = loaderTaskListener;
-//            this.loaderTaskListener = loaderTaskListenerInputStream;
             this.url = url;
         }
 
