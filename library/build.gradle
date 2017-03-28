@@ -27,7 +27,7 @@ android {
         minSdkVersion 16
         targetSdkVersion 25
         versionCode 1
-        versionName "0.2.7"
+        versionName "0.2.8"
     }
     lintOptions {
         abortOnError false
@@ -37,7 +37,7 @@ android {
 
 dependencies {
     compile fileTree(include: ['*.jar'], dir: 'libs')
-    compile files('libs/jbasx-0.1.15.jar')
+    compile files('libs/jbasx-0.1.6.jar')
     compile 'com.android.support:appcompat-v7:25.3.1'
     compile 'com.google.android.gms:play-services-gcm:10.2.1'
 }
