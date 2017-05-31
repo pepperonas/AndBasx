@@ -20,8 +20,6 @@ import android.content.pm.ApplicationInfo;
 
 /**
  * The type Installed app.
- *
- * @author Martin Pfeffer (pepperonas)
  */
 public class InstalledApp {
 

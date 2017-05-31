@@ -30,8 +30,6 @@ import com.pepperonas.jbasx.div.MaterialColor;
 
 /**
  * The type Drawable square.
- *
- * @author Martin Pfeffer (pepperonas)
  */
 public class DrawableSquare extends Drawable {
 

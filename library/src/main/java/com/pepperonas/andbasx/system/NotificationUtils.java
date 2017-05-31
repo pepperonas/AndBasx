@@ -29,8 +29,6 @@ import com.pepperonas.jbasx.color.ColorUtils;
 
 /**
  * The type Notification utils.
- *
- * @author Martin Pfeffer (pepperonas)
  */
 public class NotificationUtils {
 
@@ -41,22 +39,28 @@ public class NotificationUtils {
         /**
          * Green led color.
          */
-        Green("0x00ff00"), /**
+        Green("0x00ff00"),
+        /**
          * Blue led color.
          */
-        Blue("0x0000ff"), /**
+        Blue("0x0000ff"),
+        /**
          * Red led color.
          */
-        Red("0xff0000"), /**
+        Red("0xff0000"),
+        /**
          * Yellow led color.
          */
-        Yellow("0xfff000"), /**
+        Yellow("0xfff000"),
+        /**
          * White led color.
          */
-        White("0xffffff"), /**
+        White("0xffffff"),
+        /**
          * Purple led color.
          */
-        Purple("0xff00ff"), /**
+        Purple("0xff00ff"),
+        /**
          * Orange led color.
          */
         Orange("0xff6600");

@@ -24,8 +24,6 @@ import com.pepperonas.jbasx.div.MaterialColor;
 
 /**
  * The type Text view utils.
- *
- * @author Martin Pfeffer (pepperonas)
  */
 public class TextViewUtils {
 
@@ -36,10 +34,12 @@ public class TextViewUtils {
         /**
          * Small text size.
          */
-        SMALL("small"), /**
+        SMALL("small"),
+        /**
          * Normal text size.
          */
-        NORMAL("normal"), /**
+        NORMAL("normal"),
+        /**
          * Large text size.
          */
         LARGE("big");
@@ -57,7 +57,7 @@ public class TextViewUtils {
 
 
     /**
-     * Sets the text of a {@link TextView} to the default style.
+     * Sets normal style.
      *
      * @param textView the text view
      */
@@ -67,7 +67,7 @@ public class TextViewUtils {
 
 
     /**
-     * Sets the text of a {@link TextView} italic.
+     * Sets italic.
      *
      * @param textView the text view
      */
@@ -77,7 +77,7 @@ public class TextViewUtils {
 
 
     /**
-     * Sets the text of a {@link TextView} bold.
+     * Sets bold.
      *
      * @param textView the text view
      */
@@ -87,7 +87,7 @@ public class TextViewUtils {
 
 
     /**
-     * Sets the text of a {@link TextView} bold and italic.
+     * Sets bold and italic.
      *
      * @param textView the text view
      */
@@ -97,11 +97,11 @@ public class TextViewUtils {
 
 
     /**
-     * Colorizes the text of a {@link TextView}.
+     * Colorize.
      *
      * @param textView the text view
      * @param text     the text
-     * @param color    use {@link MaterialColor}.
+     * @param color    the color
      */
     public static void colorize(TextView textView, String text, String color) {
         textView.setText(Html.fromHtml("<normal><font color=\"" + color + "\">" + text + "</font></normal>"));
@@ -109,11 +109,11 @@ public class TextViewUtils {
 
 
     /**
-     * Resize the font size of a {@link TextView}.
+     * Resize.
      *
      * @param textView the text view
      * @param text     the text
-     * @param size     use {@link TextSize}.
+     * @param size     the size
      */
     public static void resize(TextView textView, String text, TextSize size) {
         textView.setText(Html.fromHtml("<" + size.textSize + ">" + text + "</" + size.textSize + ">"));
@@ -121,12 +121,12 @@ public class TextViewUtils {
 
 
     /**
-     * Resize the font size of a {@link TextView} and colorizes the text.
+     * Resize colorized.
      *
      * @param textView the text view
      * @param text     the text
-     * @param color    use {@link MaterialColor}.
-     * @param size     use {@link TextSize}.
+     * @param color    the color
+     * @param size     the size
      */
     public static void resizeColorized(TextView textView, String text, String color, TextSize size) {
         textView.setText(Html.fromHtml("<" + size.textSize + "><font color=\"" + color + "\">" + text + "</font></" + size.textSize + ">"));

@@ -30,8 +30,6 @@ import com.pepperonas.jbasx.div.MaterialColor;
 
 /**
  * The type Drawable circle letter.
- *
- * @author Martin Pfeffer (pepperonas)
  */
 public class DrawableCircleLetter extends Drawable {
 

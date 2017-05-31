@@ -18,6 +18,7 @@ package com.pepperonas.andbasx;
 
 import android.content.Context;
 import android.support.annotation.Nullable;
+import android.util.Log;
 
 import com.pepperonas.jbasx.Jbasx;
 
@@ -25,8 +26,6 @@ import java.io.File;
 
 /**
  * The type And basx.
- *
- * @author Martin Pfeffer (pepperonas)
  */
 public class AndBasx {
 
@@ -44,10 +43,12 @@ public class AndBasx {
         /**
          * None log mode.
          */
-        NONE(-1), /**
+        NONE(-1),
+        /**
          * Default log mode.
          */
-        DEFAULT(0), /**
+        DEFAULT(0),
+        /**
          * All log mode.
          */
         ALL(3);
@@ -68,7 +69,7 @@ public class AndBasx {
 
 
     /**
-     * Initializes the library with the app's {@link Context}.
+     * Init.
      *
      * @param context the context
      */
@@ -78,11 +79,10 @@ public class AndBasx {
 
 
     /**
-     * Initializes the library with the app's {@link Context}.
+     * Init.
      *
      * @param context the context
      * @param logMode the log mode
-     * @see LogMode
      */
     public static void init(Context context, @Nullable LogMode logMode) {
         mCtx = context;
@@ -100,10 +100,9 @@ public class AndBasx {
 
 
     /**
-     * Set the log behaviour.
+     * Sets log.
      *
      * @param logMode the log mode
-     * @see LogMode
      */
     public static void setLog(LogMode logMode) {
         if (mLog == LogMode.ALL) {
@@ -120,10 +119,10 @@ public class AndBasx {
 
 
     /**
-     * Writes a log-file in the app's data-directory.
+     * Store log file in apps cache dir.
      *
-     * @param fileName     Name of the log-file.
-     * @param setTimeStamp Whenever a timestamp should be set or not.
+     * @param fileName     the file name
+     * @param setTimeStamp the set time stamp
      */
     public static void storeLogFileInAppsCacheDir(String fileName, boolean setTimeStamp) {
         AndBasx.setLog(LogMode.ALL);
@@ -133,14 +132,14 @@ public class AndBasx {
             Jbasx.setLogWriter(logFile.getAbsolutePath(), fileName, setTimeStamp);
         } else {
             if (AndBasx.mLog == LogMode.ALL || AndBasx.mLog == LogMode.DEFAULT) {
-                com.pepperonas.jbasx.log.Log.e(TAG, "storeLogFileInAppsDataDir - failed (LogFile does not exist).");
+                Log.e(TAG, "storeLogFileInAppsDataDir - failed (LogFile does not exist).");
             }
         }
     }
 
 
     /**
-     * Writes a log-file in the app's data-directory.
+     * Store log file in apps cache dir.
      */
     public static void storeLogFileInAppsCacheDir() {
         AndBasx.setLog(LogMode.ALL);
@@ -150,7 +149,7 @@ public class AndBasx {
             Jbasx.setLogWriter(logFile.getAbsolutePath(), mLogFileName, false);
         } else {
             if (AndBasx.mLog == LogMode.ALL || AndBasx.mLog == LogMode.DEFAULT) {
-                com.pepperonas.jbasx.log.Log.e(TAG, "storeLogFileInAppsDataDir - failed (LogFile does not exist).");
+                Log.e(TAG, "storeLogFileInAppsDataDir - failed (LogFile does not exist).");
             }
         }
     }
@@ -195,7 +194,7 @@ public class AndBasx {
         /**
          * Gets license.
          *
-         * @return The license text.
+         * @return the license
          */
         public static String getLicense() {
             return "Copyright (c) 2017 Martin Pfeffer\n" +

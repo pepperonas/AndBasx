@@ -24,8 +24,6 @@ import com.pepperonas.andbasx.AndBasx;
 
 /**
  * The type Clipboard utils.
- *
- * @author Martin Pfeffer (pepperonas)
  */
 public class ClipboardUtils {
 
@@ -36,9 +34,9 @@ public class ClipboardUtils {
 
 
     /**
-     * Copy text to the clipboard.
+     * Sets clipboard older apis.
      *
-     * @param text The text to be copied.
+     * @param text the text
      */
     @SuppressWarnings("deprecation")
     public static void setClipboardOlderApis(CharSequence text) {
@@ -61,9 +59,9 @@ public class ClipboardUtils {
 
 
     /**
-     * Retrieve text from the clipboard.
+     * Gets clipboard.
      *
-     * @return The text which is stored in the clipboard.
+     * @return the clipboard
      */
     @SuppressWarnings("deprecation")
     public static String getClipboard() {

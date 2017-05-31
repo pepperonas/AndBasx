@@ -35,8 +35,6 @@ import java.util.Locale;
 
 /**
  * The type Device utils.
- *
- * @author Martin Pfeffer (pepperonas)
  */
 public class DeviceUtils {
 
@@ -47,10 +45,9 @@ public class DeviceUtils {
 
 
     /**
-     * Collect device information.
+     * Gets info.
      *
-     * @return List which contains two lists. The first list contains the description (such as 'MANUFACTURE'). The second list
-     * contains the value (such as 'Samsung').
+     * @return the info
      */
     public static List<List<String>> getInfo() {
         DisplayMetrics dm = AndBasx.getContext().getResources().getDisplayMetrics();
@@ -79,9 +76,9 @@ public class DeviceUtils {
 
 
     /**
-     * Requires {@link android.Manifest.permission#BLUETOOTH}
+     * Gets bluetooth mac.
      *
-     * @return The bluetooth mac address.
+     * @return the bluetooth mac
      */
     @SuppressWarnings("ResourceType")
     public static String getBluetoothMac() {
@@ -98,9 +95,9 @@ public class DeviceUtils {
 
 
     /**
-     * Requires {@link android.Manifest.permission#ACCESS_WIFI_STATE}
+     * Gets wlan mac.
      *
-     * @return The WLAN mac address.
+     * @return the wlan mac
      */
     @SuppressWarnings("ResourceType")
     public static String getWlanMac() {
@@ -117,9 +114,9 @@ public class DeviceUtils {
 
 
     /**
-     * Requires {@link android.Manifest.permission#READ_PHONE_STATE}
+     * Gets android id.
      *
-     * @return The Android-ID.
+     * @return the android id
      */
     public static String getAndroidId() {
         String androidID = null;
@@ -134,9 +131,9 @@ public class DeviceUtils {
 
 
     /**
-     * Requires {@link android.Manifest.permission#READ_PHONE_STATE}
+     * Gets imei.
      *
-     * @return The device IMEI.
+     * @return the imei
      */
     public static String getIMEI() {
         String deviceIMEI = null;
@@ -154,7 +151,7 @@ public class DeviceUtils {
     /**
      * Gets screen inches.
      *
-     * @return The screen size in inches.
+     * @return the screen inches
      */
     public static float getScreenInches() {
         float screenInches = -1;
@@ -172,10 +169,10 @@ public class DeviceUtils {
 
 
     /**
-     * Convert density dependent pixel into density independent pixel.
+     * Dp 2 px int.
      *
      * @param dip the dip
-     * @return Density independent pixel (dp).
+     * @return the int
      */
     public static int dp2px(int dip) {
         return Math.round(TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, dip, AndBasx.getContext().getResources().getDisplayMetrics()));
@@ -183,10 +180,10 @@ public class DeviceUtils {
 
 
     /**
-     * Convert density independent pixel into density dependent pixel.
+     * Px 2 dp int.
      *
      * @param px the px
-     * @return Density dependent pixel (px).
+     * @return the int
      */
     public static int px2dp(int px) {
         return Math.round(px / (AndBasx.getContext().getResources().getDisplayMetrics().xdpi / DisplayMetrics.DENSITY_DEFAULT));
@@ -194,10 +191,10 @@ public class DeviceUtils {
 
 
     /**
-     * Convert density density dependent pixel in to scaled density pixel.
+     * Sp 2 px int.
      *
      * @param sp the sp
-     * @return Scaled density dependent pixel.
+     * @return the int
      */
     public static int sp2px(float sp) {
         return Math.round(sp * AndBasx.getContext().getResources().getDisplayMetrics().scaledDensity);
@@ -207,7 +204,7 @@ public class DeviceUtils {
     /**
      * Gets density.
      *
-     * @return The device's density.
+     * @return the density
      */
     public static int getDensity() {
         DisplayMetrics metrics = new DisplayMetrics();

@@ -22,8 +22,6 @@ import android.view.animation.Animation;
 
 /**
  * The type Fade animation.
- *
- * @author Martin Pfeffer (pepperonas)
  */
 public class FadeAnimation {
 

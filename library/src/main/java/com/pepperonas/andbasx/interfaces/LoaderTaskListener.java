@@ -21,8 +21,6 @@ import java.io.InputStream;
 
 /**
  * The interface Loader task listener.
- *
- * @author Martin Pfeffer (pepperonas)
  */
 public interface LoaderTaskListener {
 
@@ -30,7 +28,7 @@ public interface LoaderTaskListener {
      * On loader task success.
      *
      * @param action the action
-     * @param msg the msg
+     * @param msg    the msg
      */
     void onLoaderTaskSuccess(LoaderTaskUtils.Action action, String msg);
 
@@ -38,23 +36,23 @@ public interface LoaderTaskListener {
      * On loader task failed.
      *
      * @param action the action
-     * @param msg the msg
+     * @param msg    the msg
      */
     void onLoaderTaskFailed(LoaderTaskUtils.Action action, String msg);
 
     /**
      * On loader task success.
      *
-     * @param action the action
-     * @param inputStream the inputStream
+     * @param action      the action
+     * @param inputStream the input stream
      */
     void onLoaderTaskSuccess(LoaderTaskUtils.Action action, InputStream inputStream);
 
     /**
      * On loader task failed.
      *
-     * @param action the action
-     * @param inputStream the inputStream
+     * @param action      the action
+     * @param inputStream the input stream
      */
     void onLoaderTaskFailed(LoaderTaskUtils.Action action, InputStream inputStream);
 

@@ -30,8 +30,6 @@ import com.pepperonas.andbasx.AndBasx;
 
 /**
  * The type Permission utils.
- *
- * @author Martin Pfeffer (pepperonas)
  */
 public class PermissionUtils {
 
@@ -61,10 +59,10 @@ public class PermissionUtils {
 
 
     /**
-     * Handle action in {@link Activity#onRequestPermissionsResult}.
+     * Launch intent to manage overlay permission.
      *
-     * @param activity    The calling {@link Activity}.
-     * @param requestCode The request code to handle in {@link Activity#onRequestPermissionsResult}.
+     * @param activity    the activity
+     * @param requestCode the request code
      */
     @TargetApi(Build.VERSION_CODES.M)
     public static void launchIntentToManageOverlayPermission(Activity activity, int requestCode) {

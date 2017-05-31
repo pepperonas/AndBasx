@@ -24,8 +24,6 @@ import android.view.ViewAnimationUtils;
 
 /**
  * The type Circle animation.
- *
- * @author Martin Pfeffer (pepperonas)
  */
 public class CircleAnimation {
 

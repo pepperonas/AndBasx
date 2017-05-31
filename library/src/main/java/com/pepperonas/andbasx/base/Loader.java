@@ -30,8 +30,6 @@ import com.pepperonas.andbasx.AndBasx;
 
 /**
  * The type Loader.
- *
- * @author Martin Pfeffer (pepperonas)
  */
 public class Loader {
 
@@ -74,7 +72,7 @@ public class Loader {
     }
 
     /**
-     * Resolve drawable id int.
+     * Resolve drawable id alt int.
      *
      * @param source the source
      * @return the int
@@ -89,7 +87,7 @@ public class Loader {
      * Gets attr.
      *
      * @param context the context
-     * @param attrId the attr id
+     * @param attrId  the attr id
      * @return the attr
      */
     public static int getAttr(@NonNull Context context, @AttrRes int attrId) {

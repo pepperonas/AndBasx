@@ -22,11 +22,15 @@ import android.content.Intent;
 import android.content.IntentFilter;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
+import android.net.wifi.WifiConfiguration;
+import android.net.wifi.WifiInfo;
+import android.net.wifi.WifiManager;
 import android.telephony.TelephonyManager;
+import android.util.Log;
 
 import com.pepperonas.andbasx.AndBasx;
+import com.pepperonas.andbasx.concurrency.ThreadUtils;
 import com.pepperonas.jbasx.Jbasx;
-import com.pepperonas.jbasx.log.Log;
 
 import java.net.InetAddress;
 import java.net.NetworkInterface;
@@ -35,11 +39,12 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Enumeration;
 import java.util.List;
+import java.util.concurrent.Callable;
+
+import static android.content.Context.WIFI_SERVICE;
 
 /**
  * The type Network utils.
- *
- * @author Martin Pfeffer (pepperonas)
  */
 public class NetworkUtils {
 
@@ -83,11 +88,10 @@ public class NetworkUtils {
 
 
     /**
-     * Collect network addresses.
-     * Requires android.Manifest.permission#INTERNET
+     * Gets network addresses.
      *
-     * @param onlyIps Whenever only IP-addresses should be shown.
-     * @return {@link List<String>} containing network addresses.
+     * @param onlyIps the only ips
+     * @return the network addresses
      */
     public static List<String> getNetworkAddresses(boolean onlyIps) {
         List<String> ipList = new ArrayList<>();
@@ -124,16 +128,20 @@ public class NetworkUtils {
         /**
          * Wifi fast network type.
          */
-        WIFI_FAST, /**
+        WIFI_FAST,
+        /**
          * Mobile fast network type.
          */
-        MOBILE_FAST, /**
+        MOBILE_FAST,
+        /**
          * Mobile middle network type.
          */
-        MOBILE_MIDDLE, /**
+        MOBILE_MIDDLE,
+        /**
          * Mobile slow network type.
          */
-        MOBILE_SLOW, /**
+        MOBILE_SLOW,
+        /**
          * None network type.
          */
         NONE,
@@ -160,7 +168,7 @@ public class NetworkUtils {
 
 
     /**
-     * Requires {@link android.Manifest.permission#ACCESS_WIFI_STATE}
+     * Is wifi connected boolean.
      *
      * @return the boolean
      */
@@ -211,9 +219,6 @@ public class NetworkUtils {
     }
 
 
-    /**
-     * Requires {@link android.Manifest.permission#ACCESS_WIFI_STATE}
-     */
     private void updateNetwork() {
         NetworkInfo networkInfo = getNetworkInfo();
         NetworkType networkType = type;
@@ -225,9 +230,6 @@ public class NetworkUtils {
     }
 
 
-    /**
-     * Requires {@link android.Manifest.permission#ACCESS_WIFI_STATE}
-     */
     private synchronized NetworkInfo getNetworkInfo() {
         ConnectivityManager manager =
                 (ConnectivityManager) AndBasx.getContext().getSystemService(Context.CONNECTIVITY_SERVICE);
@@ -235,9 +237,6 @@ public class NetworkUtils {
     }
 
 
-    /**
-     * Requires {@link android.Manifest.permission#ACCESS_WIFI_STATE}
-     */
     private static NetworkType checkType(NetworkInfo info) {
         if (info == null || !info.isConnected()) {
             return NetworkType.NONE;
@@ -279,6 +278,91 @@ public class NetworkUtils {
         }
 
         return NetworkType.NONE;
+    }
+
+
+    /**
+     * Is wifi enabled boolean.
+     *
+     * @param context the context
+     * @return the boolean
+     */
+    public static boolean isWifiEnabled(Context context) {
+        return ((WifiManager) (context
+                .getApplicationContext()
+                .getSystemService(WIFI_SERVICE)))
+                .isWifiEnabled();
+    }
+
+
+    /**
+     * Is connected to wifi boolean.
+     *
+     * @param context the context
+     * @param which   the which
+     * @return the boolean
+     */
+    public static boolean isConnectedToWifi(Context context, String which) {
+        if (!isWifiEnabled(context)) {
+            Log.w(TAG, "isConnectedToWifi: Wifi is disabled. Returning false...");
+            return false;
+        }
+
+        WifiManager wifiManager = (WifiManager) context.getApplicationContext()
+                .getSystemService(WIFI_SERVICE);
+        WifiInfo wifiInfo = wifiManager.getConnectionInfo();
+        String ssid = wifiInfo.getSSID();
+
+        if (ssid.replace("\"", "").equals(which)) {
+            Log.i(TAG, "Connected to " + which);
+            return true;
+        }
+        Log.i(TAG, "Not connected to " + which);
+        return false;
+    }
+
+    /**
+     * Enable wifi.
+     *
+     * @param context the context
+     * @param enabled the enabled
+     */
+    public static void enableWifi(Context context, boolean enabled) {
+        WifiManager wifiManager = (WifiManager) context.getApplicationContext().getSystemService(WIFI_SERVICE);
+        wifiManager.setWifiEnabled(enabled);
+    }
+
+
+    /**
+     * Connect to wifi.
+     *
+     * @param context the context
+     * @param ssid    the ssid
+     */
+    public static void connectToWifi(final Context context, final String ssid) {
+        NetworkUtils.enableWifi(context, true);
+        ThreadUtils.runOnBackgroundThread(new Callable() {
+            @Override
+            public Object call() throws Exception {
+
+                try {
+                    WifiManager wifiManager = (WifiManager) context.getApplicationContext()
+                            .getSystemService(WIFI_SERVICE);
+
+                    List<WifiConfiguration> wifiConfigurations = wifiManager.getConfiguredNetworks();
+
+                    for (WifiConfiguration wifiConfiguration : wifiConfigurations) {
+                        if (wifiConfiguration.SSID.equals("\"" + ssid + "\"")) {
+                            boolean success = wifiManager.enableNetwork(wifiConfiguration.networkId, true);
+                            Log.i(TAG, "Enable " + wifiConfiguration.SSID + "success=" + success + "\nWifi-State: " + wifiManager.getWifiState());
+                        }
+                    }
+                } catch (NullPointerException | IllegalStateException e) {
+                    Log.e(TAG, "Missing network configuration.");
+                }
+                return null;
+            }
+        });
     }
 
 }

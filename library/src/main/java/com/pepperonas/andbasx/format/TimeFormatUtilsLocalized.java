@@ -23,8 +23,6 @@ import java.util.Date;
 
 /**
  * The type Time format utils localized.
- *
- * @author Martin Pfeffer (pepperonas)
  */
 public class TimeFormatUtilsLocalized {
 
@@ -166,10 +164,10 @@ public class TimeFormatUtilsLocalized {
 
 
     /**
-     * Use {@link TimeFormatUtils.Format}.
+     * Gets timestamp.
      *
-     * @param format The stamp's format.
-     * @return The formatted timestamp.
+     * @param format the format
+     * @return the timestamp
      */
     public static String getTimestamp(TimeFormatUtils.Format format) {
         return TimeFormatUtils.getTimestamp(format);
@@ -208,9 +206,9 @@ public class TimeFormatUtilsLocalized {
 
 
     /**
-     * Use {@link TimeFormatUtils.Daytime}.
+     * Gets daytime.
      *
-     * @return The actual daytime.
+     * @return the daytime
      */
     public static TimeFormatUtils.Daytime getDaytime() {
         return TimeFormatUtils.getDaytime();

@@ -16,15 +16,15 @@
 
 package com.pepperonas.andbasx.concurrency;
 
+import android.os.AsyncTask;
 import android.os.Handler;
 import android.os.Looper;
+import android.util.Log;
 
 import java.util.concurrent.Callable;
 
 /**
  * The type Thread utils.
- *
- * @author Martin Pfeffer (pepperonas)
  */
 public class ThreadUtils {
 
@@ -32,13 +32,48 @@ public class ThreadUtils {
 
 
     /**
-     * Run delayed void.
+     * Run on background thread.
      *
-     * @param delay    the delay
      * @param callable the callable
-     * @return the void
      */
-    public static Void runDelayed(int delay, final Callable<Void> callable) {
+    public static void runOnBackgroundThread(final Callable callable) {
+        AsyncTask.execute(new Runnable() {
+            @Override
+            public void run() {
+                try {
+                    callable.call();
+                } catch (Exception e) {
+                    Log.e(TAG, "runOnBackgroundThread: ", e);
+                }
+            }
+        });
+    }
+
+    /**
+     * Run on main ui thread.
+     *
+     * @param callable the callable
+     */
+    public static void runOnMainUiThread(final Callable callable) {
+        new Handler(Looper.getMainLooper()).post(new Runnable() {
+            @Override
+            public void run() {
+                try {
+                    callable.call();
+                } catch (Exception e) {
+                    Log.e(TAG, "runOnMainUiThread: ", e);
+                }
+            }
+        });
+    }
+
+    /**
+     * Run delayed.
+     *
+     * @param callable the callable
+     * @param delay    the delay
+     */
+    public static void runDelayed(final Callable callable, long delay) {
         final Handler handler = new Handler();
         handler.postDelayed(new Runnable() {
             @Override
@@ -50,29 +85,6 @@ public class ThreadUtils {
                 }
             }
         }, delay);
-        return null;
-    }
-
-
-    /**
-     * Run from background void.
-     *
-     * @param callable the callable
-     * @return the void
-     */
-    public static Void runFromBackground(final Callable<Void> callable) {
-        Handler handler = new Handler(Looper.getMainLooper());
-        handler.post(new Runnable() {
-            @Override
-            public void run() {
-                try {
-                    callable.call();
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
-            }
-        });
-        return null;
     }
 
 }

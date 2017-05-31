@@ -24,15 +24,13 @@ import com.pepperonas.andbasx.AndBasx;
 
 /**
  * The type App utils.
- *
- * @author Martin Pfeffer (pepperonas)
  */
 public class AppUtils {
 
     /**
      * Gets version code.
      *
-     * @return The app's version-code (such as '1').
+     * @return the version code
      */
     public static int getVersionCode() {
         try {
@@ -51,7 +49,7 @@ public class AppUtils {
     /**
      * Gets version name.
      *
-     * @return The app's version-name (such as '1.2.3b').
+     * @return the version name
      */
     public static String getVersionName() {
         try {
@@ -71,7 +69,7 @@ public class AppUtils {
     /**
      * Gets app name.
      *
-     * @return The app's name (such as 'My Android App').
+     * @return the app name
      */
     public static String getAppName() {
         try {
@@ -89,7 +87,7 @@ public class AppUtils {
 
 
     /**
-     * * @return The app's version-info (such as 'My Android App 1.2').
+     * Gets version info.
      *
      * @return the version info
      */

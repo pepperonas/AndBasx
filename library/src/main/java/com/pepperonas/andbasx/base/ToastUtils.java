@@ -24,8 +24,6 @@ import com.pepperonas.andbasx.AndBasx;
 
 /**
  * The type Toast utils.
- *
- * @author Martin Pfeffer (pepperonas)
  */
 public class ToastUtils {
 
@@ -33,9 +31,9 @@ public class ToastUtils {
 
 
     /**
-     * Show a {@link Toast} with duration {@link Toast#LENGTH_SHORT}.
+     * Toast short.
      *
-     * @param message The {@link CharSequence} which should be shown.
+     * @param message the message
      */
     public static void toastShort(CharSequence message) {
         Toast.makeText(AndBasx.getContext(), message, Toast.LENGTH_SHORT).show();
@@ -43,9 +41,9 @@ public class ToastUtils {
 
 
     /**
-     * Show a {@link Toast} with duration {@link Toast#LENGTH_LONG}.
+     * Toast long.
      *
-     * @param message The {@link CharSequence} which should be shown.
+     * @param message the message
      */
     public static void toastLong(CharSequence message) {
         Toast.makeText(AndBasx.getContext(), message, Toast.LENGTH_LONG).show();
@@ -53,25 +51,25 @@ public class ToastUtils {
 
 
     /**
-     * Show a {@link Toast} with duration {@link Toast#LENGTH_SHORT}.
+     * Toast short.
      *
-     * @param stringId The resource-id of the {@link String} which should be shown.
+     * @param stringId the string id
      */
     public static void toastShort(int stringId) { toastShort(AndBasx.getContext().getString(stringId)); }
 
 
     /**
-     * Show a {@link Toast} with duration {@link Toast#LENGTH_SHORT}.
+     * Toast long.
      *
-     * @param stringId The resource-id of the {@link String} which should be shown.
+     * @param stringId the string id
      */
     public static void toastLong(int stringId) { toastLong(AndBasx.getContext().getString(stringId)); }
 
 
     /**
-     * Show a {@link Toast} with duration {@link Toast#LENGTH_SHORT} from a background thread.
+     * Toast short from background.
      *
-     * @param message The {@link CharSequence} which should be shown.
+     * @param message the message
      */
     public static void toastShortFromBackground(final CharSequence message) {
         Handler handler = new Handler(Looper.getMainLooper());
@@ -85,9 +83,9 @@ public class ToastUtils {
 
 
     /**
-     * Show a {@link Toast} with duration {@link Toast#LENGTH_LONG} from a background thread.
+     * Toast long from background.
      *
-     * @param message The {@link CharSequence} which should be shown.
+     * @param message the message
      */
     public static void toastLongFromBackground(final CharSequence message) {
         Handler handler = new Handler(Looper.getMainLooper());
@@ -101,9 +99,9 @@ public class ToastUtils {
 
 
     /**
-     * Show a {@link Toast} with duration {@link Toast#LENGTH_SHORT} from a background thread.
+     * Toast short from background.
      *
-     * @param stringId The resource-id of the {@link String} which should be shown.
+     * @param stringId the string id
      */
     public static void toastShortFromBackground(final int stringId) {
         Handler handler = new Handler(Looper.getMainLooper());
@@ -117,9 +115,9 @@ public class ToastUtils {
 
 
     /**
-     * Show a {@link Toast} with duration {@link Toast#LENGTH_LONG} from a background thread.
+     * Toast long from background.
      *
-     * @param stringId The resource-id of the {@link String} which should be shown.
+     * @param stringId the string id
      */
     public static void toastLongFromBackground(final int stringId) {
         Handler handler = new Handler(Looper.getMainLooper());

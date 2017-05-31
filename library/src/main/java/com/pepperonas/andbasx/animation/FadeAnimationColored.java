@@ -26,8 +26,6 @@ import com.pepperonas.andbasx.AndBasx;
 
 /**
  * The type Fade animation colored.
- *
- * @author Martin Pfeffer (pepperonas)
  */
 public class FadeAnimationColored {
 

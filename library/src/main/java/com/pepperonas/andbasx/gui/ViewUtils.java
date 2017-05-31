@@ -23,8 +23,6 @@ import java.util.ArrayList;
 
 /**
  * The type View utils.
- *
- * @author Martin Pfeffer (pepperonas)
  */
 public class ViewUtils {
 

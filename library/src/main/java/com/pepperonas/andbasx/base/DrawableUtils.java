@@ -23,16 +23,14 @@ import android.graphics.drawable.Drawable;
 
 /**
  * The type Drawable utils.
- *
- * @author Martin Pfeffer (pepperonas)
  */
 public class DrawableUtils {
 
     /**
-     * Convert a {@link Drawable} to a {@link Bitmap}.
+     * To bitmap bitmap.
      *
-     * @param drawable The {@link Drawable} which should be converted.
-     * @return The drawable as a {@link Bitmap}.
+     * @param drawable the drawable
+     * @return the bitmap
      */
     public static Bitmap toBitmap(Drawable drawable) {
         Bitmap bitmap;

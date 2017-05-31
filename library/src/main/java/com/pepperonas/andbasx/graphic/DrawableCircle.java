@@ -29,8 +29,6 @@ import com.pepperonas.jbasx.div.MaterialColor;
 
 /**
  * The type Drawable circle.
- *
- * @author Martin Pfeffer (pepperonas)
  */
 public class DrawableCircle extends Drawable {
 

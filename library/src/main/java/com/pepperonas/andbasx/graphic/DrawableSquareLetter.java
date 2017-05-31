@@ -31,8 +31,6 @@ import com.pepperonas.jbasx.div.MaterialColor;
 
 /**
  * The type Drawable square letter.
- *
- * @author Martin Pfeffer (pepperonas)
  */
 public class DrawableSquareLetter extends Drawable {
 

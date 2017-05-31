@@ -21,14 +21,12 @@ import android.app.Activity;
 import android.content.pm.PackageManager;
 import android.os.Environment;
 import android.support.v4.app.ActivityCompat;
+import android.util.Log;
 
 import com.pepperonas.andbasx.AndBasx;
-import com.pepperonas.jbasx.log.Log;
 
 /**
  * The type Android storage utils.
- *
- * @author Martin Pfeffer (pepperonas)
  */
 public class AndroidStorageUtils {
 
@@ -43,11 +41,9 @@ public class AndroidStorageUtils {
 
 
     /**
-     * Checks if the app has permission to write to device storage.
-     * <p/>
-     * If the app does not has permission then the user will be prompted to grant permissions.
+     * Verify storage permissions.
      *
-     * @param activity The calling activity.
+     * @param activity the activity
      */
     public static void verifyStoragePermissions(Activity activity) {
         // Check if we have write permission
@@ -61,7 +57,7 @@ public class AndroidStorageUtils {
 
 
     /**
-     * The app's internal directory (such as '/data/data/com.pepperonas.testapp/files').
+     * Gets apps internal data dir.
      *
      * @return the apps internal data dir
      */
@@ -71,7 +67,7 @@ public class AndroidStorageUtils {
 
 
     /**
-     * The app's external files directory (such as '/storage/emulated/0/Android/data/com.pepperonas.testapp/files/dirName').
+     * Gets apps external file dir.
      *
      * @param dirName the dir name
      * @return the apps external file dir
@@ -87,7 +83,7 @@ public class AndroidStorageUtils {
 
 
     /**
-     * The app's external cache directory (such as '/storage/emulated/0/Android/data/com.pepperonas.testapp/cache').
+     * Gets apps external cache dir.
      *
      * @return the apps external cache dir
      */
@@ -102,7 +98,7 @@ public class AndroidStorageUtils {
 
 
     /**
-     * The external root directory (such as '/storage/emulated/0').
+     * Gets external dir.
      *
      * @return the external dir
      */
@@ -112,7 +108,7 @@ public class AndroidStorageUtils {
 
 
     /**
-     * The download directory (such as '/storage/emulated/0/Download').
+     * Gets download dir.
      *
      * @return the download dir
      */

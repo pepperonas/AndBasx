@@ -21,8 +21,6 @@ import android.graphics.Rect;
 
 /**
  * The type Geometry utils.
- *
- * @author Martin Pfeffer (pepperonas)
  */
 public class GeometryUtils {
 

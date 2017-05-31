@@ -43,13 +43,13 @@ import android.os.PowerManager;
 import android.provider.Settings;
 import android.telephony.TelephonyManager;
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.Display;
 import android.view.MotionEvent;
 
 import com.pepperonas.andbasx.AndBasx;
 import com.pepperonas.andbasx.base.ToastUtils;
 import com.pepperonas.andbasx.model.InstalledApp;
-import com.pepperonas.jbasx.log.Log;
 
 import java.io.ByteArrayOutputStream;
 import java.io.DataOutputStream;
@@ -61,8 +61,6 @@ import java.util.List;
 
 /**
  * The type System utils.
- *
- * @author Martin Pfeffer (pepperonas)
  */
 public class SystemUtils {
 
@@ -85,7 +83,8 @@ public class SystemUtils {
         /**
          * Mobile network type.
          */
-        Mobile, /**
+        Mobile,
+        /**
          * Wifi network type.
          */
         Wifi
@@ -171,7 +170,7 @@ public class SystemUtils {
     /**
      * Gets installed app infos.
      *
-     * @return the installed apps
+     * @return the installed app infos
      */
     public static List<ApplicationInfo> getInstalledAppInfos() {
         final PackageManager packageManager = AndBasx.getContext().getPackageManager();
@@ -299,7 +298,7 @@ public class SystemUtils {
 
 
     /**
-     * Lock the screen.
+     * Lock screen.
      */
     @TargetApi(Build.VERSION_CODES.FROYO)
     public static void lockScreen() {
@@ -412,7 +411,6 @@ public class SystemUtils {
 
     /**
      * Is network available boolean.
-     * {@link android.Manifest.permission#ACCESS_NETWORK_STATE}
      *
      * @return the boolean
      */
@@ -426,7 +424,6 @@ public class SystemUtils {
 
     /**
      * Is wifi enabled boolean.
-     * {@link android.Manifest.permission#ACCESS_WIFI_STATE}
      *
      * @return the boolean
      */
@@ -434,7 +431,7 @@ public class SystemUtils {
         boolean enabled = false;
         try {
             WifiManager wifiManager = (WifiManager)
-                    AndBasx.getContext().getSystemService(Context.WIFI_SERVICE);
+                    AndBasx.getContext().getApplicationContext().getSystemService(Context.WIFI_SERVICE);
             enabled = wifiManager.isWifiEnabled();
         } catch (Exception e) {
             e.printStackTrace();
@@ -445,14 +442,13 @@ public class SystemUtils {
 
     /**
      * Sets wifi enabled.
-     * {@link android.Manifest.permission#CHANGE_WIFI_STATE}
      *
      * @param enable the enable
      */
     public static void setWifiEnabled(boolean enable) {
         try {
             WifiManager wifiManager = (WifiManager)
-                    AndBasx.getContext().getSystemService(Context.WIFI_SERVICE);
+                    AndBasx.getContext().getApplicationContext().getSystemService(Context.WIFI_SERVICE);
             wifiManager.setWifiEnabled(enable);
         } catch (Exception e) {
             e.printStackTrace();
@@ -462,7 +458,6 @@ public class SystemUtils {
 
     /**
      * Gets network type.
-     * {@link android.Manifest.permission#ACCESS_NETWORK_STATE}
      *
      * @return the network type
      */
@@ -495,12 +490,11 @@ public class SystemUtils {
 
     /**
      * Gets wifi name.
-     * {@link android.Manifest.permission#CHANGE_WIFI_STATE}
      *
      * @return the wifi name
      */
     public static String getWifiName() {
-        WifiManager wifiManager = (WifiManager) AndBasx.getContext().getSystemService(Context.WIFI_SERVICE);
+        WifiManager wifiManager = (WifiManager) AndBasx.getContext().getApplicationContext().getSystemService(Context.WIFI_SERVICE);
         WifiInfo info = wifiManager.getConnectionInfo();
         return info.getSSID();
     }
@@ -512,7 +506,7 @@ public class SystemUtils {
      * @return the wifi signal strength
      */
     public static int getWifiSignalStrength() {
-        WifiManager wifiManager = (WifiManager) AndBasx.getContext().getSystemService(Context.WIFI_SERVICE);
+        WifiManager wifiManager = (WifiManager) AndBasx.getContext().getApplicationContext().getSystemService(Context.WIFI_SERVICE);
         int numberOfLevels = 101;
         WifiInfo wifiInfo = wifiManager.getConnectionInfo();
         return WifiManager.calculateSignalLevel(wifiInfo.getRssi(), numberOfLevels);
@@ -521,7 +515,6 @@ public class SystemUtils {
 
     /**
      * Is master sync enabled boolean.
-     * {@link android.Manifest.permission#READ_SYNC_SETTINGS}
      *
      * @return the boolean
      */

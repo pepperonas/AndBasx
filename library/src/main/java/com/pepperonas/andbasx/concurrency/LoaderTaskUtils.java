@@ -19,10 +19,12 @@ package com.pepperonas.andbasx.concurrency;
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.os.AsyncTask;
+
 import com.pepperonas.andbasx.AndBasx;
 import com.pepperonas.andbasx.interfaces.LoaderTaskListener;
 import com.pepperonas.jbasx.io.IoUtils;
 import com.pepperonas.jbasx.log.Log;
+
 import java.io.BufferedInputStream;
 import java.io.BufferedReader;
 import java.io.File;
@@ -42,10 +44,9 @@ import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 
+
 /**
  * The type Loader task utils.
- *
- * @author Martin Pfeffer (pepperonas)
  */
 public class LoaderTaskUtils extends AsyncTask<String, String, String> {
 
@@ -144,7 +145,7 @@ public class LoaderTaskUtils extends AsyncTask<String, String, String> {
 
                     int length = urlConnection.getContentLength();
                     output = new FileOutputStream(
-                        new File(builder.dirPath, builder.fileName + builder.extension));
+                            new File(builder.dirPath, builder.fileName + builder.extension));
                     byte data[] = new byte[1024];
 
                     long total = 0;
@@ -156,14 +157,14 @@ public class LoaderTaskUtils extends AsyncTask<String, String, String> {
                     }
 
                     builder.loaderTaskListener
-                        .onLoaderTaskSuccess(builder.action, "File successfully stored.");
+                            .onLoaderTaskSuccess(builder.action, "File successfully stored.");
                     return "";
 
                 } else if (builder.action == Action.READ) {
 
                     if (builder.loaderTaskListener != null) {
                         builder.loaderTaskListener
-                            .onLoaderTaskSuccess(builder.action, is);
+                                .onLoaderTaskSuccess(builder.action, is);
                     }
                     String text = IoUtils.convertStreamToString(is);
                     builder.loaderTaskListener.onLoaderTaskSuccess(builder.action, text);
@@ -209,7 +210,7 @@ public class LoaderTaskUtils extends AsyncTask<String, String, String> {
 
                 StringBuilder result = new StringBuilder();
                 Reader in = new BufferedReader(
-                    new InputStreamReader(conn.getInputStream(), "UTF-8"));
+                        new InputStreamReader(conn.getInputStream(), "UTF-8"));
                 for (int c = in.read(); c != -1; c = in.read()) {
                     result.append((char) c);
                 }
@@ -282,9 +283,9 @@ public class LoaderTaskUtils extends AsyncTask<String, String, String> {
         /**
          * Instantiates a new Builder.
          *
-         * @param context the context
+         * @param context            the context
          * @param loaderTaskListener the loader task listener
-         * @param url the url
+         * @param url                the url
          */
         public Builder(Context context, LoaderTaskListener loaderTaskListener, String url) {
             action = Action.READ;
@@ -297,12 +298,13 @@ public class LoaderTaskUtils extends AsyncTask<String, String, String> {
         /**
          * Instantiates a new Builder.
          *
-         * @param context the context
-         * @param loaderTaskListener the loader task listener
-         * @param url the url
+         * @param context                       the context
+         * @param loaderTaskListener            the loader task listener
+         * @param loaderTaskListenerInputStream the loader task listener input stream
+         * @param url                           the url
          */
         public Builder(Context context, LoaderTaskListener loaderTaskListener,
-            LoaderTaskListener loaderTaskListenerInputStream, String url) {
+                       LoaderTaskListener loaderTaskListenerInputStream, String url) {
             action = Action.READ;
 
             this.ctx = context;
@@ -314,13 +316,13 @@ public class LoaderTaskUtils extends AsyncTask<String, String, String> {
         /**
          * Instantiates a new Builder.
          *
-         * @param context the context
+         * @param context            the context
          * @param loaderTaskListener the loader task listener
-         * @param url the url
-         * @param params the params
+         * @param url                the url
+         * @param params             the params
          */
         public Builder(Context context, LoaderTaskListener loaderTaskListener, String url,
-            String... params) {
+                       String... params) {
             action = Action.RESOLVE;
             this.params = new ArrayList<>();
 
@@ -334,7 +336,7 @@ public class LoaderTaskUtils extends AsyncTask<String, String, String> {
         /**
          * Add param builder.
          *
-         * @param key the key
+         * @param key   the key
          * @param value the value
          * @return the builder
          */
@@ -353,8 +355,8 @@ public class LoaderTaskUtils extends AsyncTask<String, String, String> {
         /**
          * Store content builder.
          *
-         * @param dirPath the dir path
-         * @param fileName the file name
+         * @param dirPath   the dir path
+         * @param fileName  the file name
          * @param extension the extension
          * @return the builder
          */
@@ -374,20 +376,20 @@ public class LoaderTaskUtils extends AsyncTask<String, String, String> {
         /**
          * Show dialog builder.
          *
-         * @param stringIdTitle the string id title
+         * @param stringIdTitle   the string id title
          * @param stringIdMessage the string id message
          * @return the builder
          */
         public Builder showDialog(int stringIdTitle, int stringIdMessage) {
             return showDialog(AndBasx.getContext().getString(stringIdTitle),
-                AndBasx.getContext().getString(stringIdMessage));
+                    AndBasx.getContext().getString(stringIdMessage));
         }
 
 
         /**
          * Show dialog builder.
          *
-         * @param title the title
+         * @param title   the title
          * @param message the message
          * @return the builder
          */
@@ -403,20 +405,20 @@ public class LoaderTaskUtils extends AsyncTask<String, String, String> {
         /**
          * Show progress dialog builder.
          *
-         * @param stringIdTitle the string id title
+         * @param stringIdTitle   the string id title
          * @param stringIdMessage the string id message
          * @return the builder
          */
         public Builder showProgressDialog(int stringIdTitle, int stringIdMessage) {
             return showProgressDialog(AndBasx.getContext().getString(stringIdTitle),
-                AndBasx.getContext().getString(stringIdMessage));
+                    AndBasx.getContext().getString(stringIdMessage));
         }
 
 
         /**
          * Show progress dialog builder.
          *
-         * @param title the title
+         * @param title   the title
          * @param message the message
          * @return the builder
          */

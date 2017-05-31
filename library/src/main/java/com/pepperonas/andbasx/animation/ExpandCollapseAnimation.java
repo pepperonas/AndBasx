@@ -22,8 +22,6 @@ import android.view.animation.Transformation;
 
 /**
  * The type Expand collapse animation.
- *
- * @author Martin Pfeffer (pepperonas)
  */
 public class ExpandCollapseAnimation extends Animation {
 
@@ -33,12 +31,11 @@ public class ExpandCollapseAnimation extends Animation {
 
 
     /**
-     * Initializes expand collapse animation, has two types, collapse (1) and expand (0).
+     * Instantiates a new Expand collapse animation.
      *
-     * @param view     The view to animate
-     * @param duration The duration in ms.
-     * @param type     The type of animation: 0 will expand from gone and 0 size to visible and layout size defined in xml.
-     *                 1 will collapse view and set to gone
+     * @param view     the view
+     * @param duration the duration
+     * @param type     the type
      */
     public ExpandCollapseAnimation(View view, int duration, int type) {
         setDuration(duration);

@@ -39,8 +39,6 @@ import com.pepperonas.andbasx.system.DeviceUtils;
 
 /**
  * The type Splash view.
- *
- * @author Martin Pfeffer (pepperonas)
  */
 public class SplashView extends View {
 

@@ -22,8 +22,6 @@ import java.util.concurrent.Callable;
 
 /**
  * The type Timer utils.
- *
- * @author Martin Pfeffer (pepperonas)
  */
 public class TimerUtils {
 

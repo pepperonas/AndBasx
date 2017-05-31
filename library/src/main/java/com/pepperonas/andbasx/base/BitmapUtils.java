@@ -18,9 +18,9 @@ package com.pepperonas.andbasx.base;
 
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.util.Log;
 
 import com.pepperonas.andbasx.AndBasx;
-import com.pepperonas.jbasx.log.Log;
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -30,8 +30,6 @@ import java.io.IOException;
 
 /**
  * The type Bitmap utils.
- *
- * @author Martin Pfeffer (pepperonas)
  */
 public class BitmapUtils {
 
@@ -39,13 +37,12 @@ public class BitmapUtils {
 
 
     /**
-     * Save a {@link Bitmap} in the app's data directory.
-     * NOTE: This directory is private to the user.
+     * Store in data directory file.
      *
-     * @param bitmap   The {@link Bitmap} to store.
-     * @param dirName  The name of the directory.
-     * @param fileName The name of the file.
-     * @return The created {@link File}.
+     * @param bitmap   the bitmap
+     * @param dirName  the dir name
+     * @param fileName the file name
+     * @return the file
      */
     public static File storeInDataDirectory(Bitmap bitmap, String dirName, String fileName) {
         if (fileName.contains(".")) {
@@ -87,11 +84,11 @@ public class BitmapUtils {
 
 
     /**
-     * Load a {@link Bitmap} from the filesystem.
+     * Load from storage bitmap.
      *
-     * @param dirPath  The path of the directory, where the {@link Bitmap} is stored.
-     * @param fileName The name of the file.
-     * @return The {@link Bitmap} which should be loaded.
+     * @param dirPath  the dir path
+     * @param fileName the file name
+     * @return the bitmap
      */
     public static Bitmap loadFromStorage(String dirPath, String fileName) {
         try {

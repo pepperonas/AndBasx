@@ -33,8 +33,6 @@ import com.pepperonas.andbasx.AndBasx;
 
 /**
  * The type Usability utils.
- *
- * @author Martin Pfeffer (pepperonas)
  */
 public class UsabilityUtils {
 
@@ -143,13 +141,13 @@ public class UsabilityUtils {
 
 
     /**
-     * Start an intent to share text information.
+     * Send share text intent.
      *
      * @param ctx        the ctx
-     * @param receiver   The addresses which should receive the message.
-     * @param intentInfo The intent's description.
-     * @param subject    The content's subject.
-     * @param msg        The content's message.
+     * @param receiver   the receiver
+     * @param intentInfo the intent info
+     * @param subject    the subject
+     * @param msg        the msg
      */
     public static void sendShareTextIntent(Context ctx, String[] receiver, String intentInfo, String subject, String msg) {
         Intent intent = new Intent(Intent.ACTION_SEND);
@@ -162,9 +160,9 @@ public class UsabilityUtils {
 
 
     /**
-     * Prevent the keyboard from expanding.
+     * Keep keyboard hidden.
      *
-     * @param activity the calling {@link Activity}
+     * @param activity the activity
      */
     @TargetApi(Build.VERSION_CODES.CUPCAKE)
     public static void keepKeyboardHidden(Activity activity) {
@@ -173,7 +171,7 @@ public class UsabilityUtils {
 
 
     /**
-     * Toggle the current keyboard-state.
+     * Change keyboard state.
      */
     @TargetApi(Build.VERSION_CODES.CUPCAKE)
     public static void changeKeyboardState() {

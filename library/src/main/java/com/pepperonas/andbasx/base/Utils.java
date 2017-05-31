@@ -14,20 +14,27 @@
  * limitations under the License.
  */
 
-// Top-level build file where you can add configuration options common to all sub-projects/modules.
+package com.pepperonas.andbasx.base;
 
-buildscript {
-    repositories {
-        jcenter()
-    }
-    dependencies {
-        classpath 'com.android.tools.build:gradle:2.3.2'
-        classpath 'com.github.dcendents:android-maven-gradle-plugin:1.4.1'
-    }
-}
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
-allprojects {
-    repositories {
-        jcenter()
+/**
+ * The type Utils.
+ */
+public class Utils {
+
+
+    /**
+     * Gets readable time stamp.
+     *
+     * @return the readable time stamp
+     */
+    public static String getReadableTimeStamp() {
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd-HH-mm-ss");
+        Date dt = new Date();
+        return sdf.format(dt);
     }
+
+
 }
